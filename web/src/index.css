@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
+  @apply bg-indigo-500;
+} */
+
+h1 {
+  @apply text-2xl;
+  @apply mb-1;
+}
+
+/* // https://mdv.io/tailwindcss-in-redwoodjs
+// https://stackoverflow.com/questions/71070781/tailwind-css-classes-is-not-working-in-my-project */

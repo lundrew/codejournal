@@ -16,7 +16,7 @@ yarn install
 Then change into that directory and start the development server:
 
 ```
-cd my-redwood-project
+cd eureka-project
 yarn redwood dev
 ```
 
@@ -119,3 +119,19 @@ The best way to learn Redwood is by going through the comprehensive [tutorial](h
 
 - Stay updated: read [Forum announcements](https://community.redwoodjs.com/c/announcements/5), follow us on [Twitter](https://twitter.com/redwoodjs), and subscribe to the [newsletter](https://redwoodjs.com/newsletter)
 - [Learn how to contribute](https://redwoodjs.com/docs/contributing)
+
+
+
+
+
+
+After the initial setup command, which installed dbAuth, you may have noticed that an edit was made to the .env file in the root of your project. The setup script appended a new ENV var called SESSION_SECRET along with a big random string of numbers and letters. This is the encryption key for the cookies that are stored in the user's browser when they log in. This secret should never be shared, never checked into your repo, and should be re-generated for each environment you deploy to.
+
+You can generate a new value with the yarn rw g secret command. It only outputs it to the terminal, you'll need to copy/paste to your .env file. Note that if you change this secret in a production environment, all users will be logged out on their next request because the cookie they currently have cannot be decrypted with the new key! They'll need to log in again to a new cookie encrypted with the new key.
+
+
+
+
+issues:
+
+//error with forgot password, need to fix... dbAuth is not setting up the routes correctly, so routes were hardcoded into the routes.tsx file which works now..
