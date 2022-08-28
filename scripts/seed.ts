@@ -1,40 +1,51 @@
-import type { Prisma } from '@prisma/client'
-import { db } from 'api/src/lib/db'
+import { PrismaClient } from '@prisma/client'
 
-export default async () => {
-  try {
-    //
-    // Manually seed via `yarn rw prisma db seed`
-    // Seeds automatically with `yarn rw prisma migrate dev` and `yarn rw prisma migrate reset`
-    //
-    // Update "const data = []" to match your data model and seeding needs
-    //
-    const data: Prisma.UserExampleCreateArgs['data'][] = [
-      // To try this example data with the UserExample model in schema.prisma,
-      // uncomment the lines below and run 'yarn rw prisma migrate dev'
-      //
-      // { name: 'alice', email: 'alice@example.com' },
-      // { name: 'mark', email: 'mark@example.com' },
-      // { name: 'jackie', email: 'jackie@example.com' },
-      // { name: 'bob', email: 'bob@example.com' },
-    ]
-    console.log(
-      "\nUsing the default './scripts/seed.{js,ts}' template\nEdit the file to add seed data\n"
-    )
+// import { posts } from '../api/db/seeds/postsSeed'
+// import { users } from '../api/db/seeds/postsSeed'
+// import { comments } from '../api/db/seeds/postsSeed'
 
-    // Note: if using PostgreSQL, using `createMany` to insert multiple records is much faster
-    // @see: https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#createmany
-    Promise.all(
-      //
-      // Change to match your data model and seeding needs
-      //
-      data.map(async (data: Prisma.UserExampleCreateArgs['data']) => {
-        const record = await db.userExample.create({ data })
-        console.log(record)
-      })
-    )
-  } catch (error) {
-    console.warn('Please define your seed data.')
-    console.error(error)
-  }
+const prisma = new PrismaClient()
+
+async function main() {
+  await prisma.user.create({
+    data: {
+      name: 'admin',
+      email: 'admin@admin.com',
+      roles: 'admin',
+      hashedPassword:
+        'b4ef8162f548132277b3b7f00f62ea6e6ee1f1ab735220f0617e3839f6701569',
+      salt: '3df2863b9b477d0e09e08e6446bf2263',
+    },
+  })
+
+  await prisma.user.create({
+    data: {
+      name: 'moderator',
+      email: 'moderator@moderator.com',
+      roles: 'moderator',
+      hashedPassword:
+        '9e792cadd06dd1fd3338e5381b6381a48439a3ef3f8675fd2b6505f758a4c3a1',
+      salt: 'a898f0fa0947f4c71d18aea132348aeb',
+    },
+  })
+
+  await prisma.post.create({
+    data: {
+      title: 'title',
+      explanation: 'explanation',
+      codeLanguage: 'language',
+      codeSnippet: 'code',
+    },
+  })
 }
+
+main()
+  .catch((e) => {
+    console.log(e)
+    process.exit(1)
+  })
+  .finally(() => {
+    prisma.$disconnect()
+  })
+
+//for new seed data, run $npx prisma db seed --preview-feature
