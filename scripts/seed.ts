@@ -26,31 +26,56 @@ async function runSeeds() {
         explanation: post.explanation,
         codeLanguage: post.codeLanguage,
         codeSnippet: post.codeSnippet,
+        authorId: post.authorId,
+        comments: {
+          create: [
+            {
+              name: 'first comment',
+              body: 'first body',
+              // postId: 1,
+            },
+            {
+              name: 'second comment',
+              body: 'second body',
+              // postId: 2,
+            },
+            {
+              name: 'third comment',
+              body: 'third body',
+              // postId: 3,
+            },
+            {
+              name: 'fourth comment',
+              body: 'fourth body',
+              // postId: 4,
+            },
+          ],
+        },
       },
     })
   })
 }
 
-function runSeedComments() {
-  comments.forEach(async (comment) => {
-    await prisma.comment.create({
-      data: {
-        name: comment.name,
-        body: comment.body,
-        postId: comment.postId,
-      },
-    })
-  })
-}
+// function runSeedComments() {
+//   comments.forEach(async (comment) => {
+//     await prisma.comment.create({
+//       data: {
+//         name: comment.name,
+//         body: comment.body,
+//         postId: comment.postId,
+//       },
+//     })
+//   })
+// }
 
 runSeeds()
   .catch((e) => {
     console.log(e)
     process.exit(1)
   })
-  .finally(() => {
-    runSeedComments()
-  })
+  // .finally(() => {
+  //   runSeedComments()
+  // })
   .finally(() => {
     prisma.$disconnect()
   })
