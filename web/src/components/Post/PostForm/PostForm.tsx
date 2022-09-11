@@ -7,24 +7,8 @@ import {
   Submit,
 } from '@redwoodjs/forms'
 
-
-
 const PostForm = (props) => {
   const onSubmit = (data) => {
-
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
     props.onSave(data, props?.post?.id)
   }
 
@@ -37,7 +21,7 @@ const PostForm = (props) => {
           titleClassName="rw-form-error-title"
           listClassName="rw-form-error-list"
         />
-      
+
         <Label
           name="title"
           className="rw-label"
@@ -45,15 +29,14 @@ const PostForm = (props) => {
         >
           Title
         </Label>
-        
-          <TextField
-            name="title"
-            defaultValue={props.post?.title}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-        
+
+        <TextField
+          name="title"
+          defaultValue={props.post?.title}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
         <FieldError name="title" className="rw-field-error" />
 
@@ -64,15 +47,14 @@ const PostForm = (props) => {
         >
           Explanation
         </Label>
-        
-          <TextField
-            name="explanation"
-            defaultValue={props.post?.explanation}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-        
+
+        <TextField
+          name="explanation"
+          defaultValue={props.post?.explanation}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
         <FieldError name="explanation" className="rw-field-error" />
 
@@ -83,15 +65,14 @@ const PostForm = (props) => {
         >
           Code language
         </Label>
-        
-          <TextField
-            name="codeLanguage"
-            defaultValue={props.post?.codeLanguage}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-        
+
+        <TextField
+          name="codeLanguage"
+          defaultValue={props.post?.codeLanguage}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
         <FieldError name="codeLanguage" className="rw-field-error" />
 
@@ -102,23 +83,41 @@ const PostForm = (props) => {
         >
           Code snippet
         </Label>
-        
-          <TextField
-            name="codeSnippet"
-            defaultValue={props.post?.codeSnippet}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-        
+
+        <TextField
+          name="codeSnippet"
+          defaultValue={props.post?.codeSnippet}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
         <FieldError name="codeSnippet" className="rw-field-error" />
 
+        <FieldError name="title" className="rw-field-error" />
+
+        {/* author below line */}
+        <Label
+          name="authorId"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Author ID
+        </Label>
+
+        <TextField
+          name="authorId"
+          defaultValue={'1'}
+          typeof="int"
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: false, valueAsNumber: true }}
+        />
+
+        <FieldError name="title" className="rw-field-error" />
+
         <div className="rw-button-group">
-          <Submit
-            disabled={props.loading}
-            className="rw-button rw-button-blue"
-          >
+          <Submit disabled={props.loading} className="rw-button rw-button-blue">
             Save
           </Submit>
         </div>

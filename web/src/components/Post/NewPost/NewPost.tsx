@@ -1,3 +1,4 @@
+import { useAuth } from '@redwoodjs/auth'
 import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
@@ -13,6 +14,8 @@ const CREATE_POST_MUTATION = gql`
 `
 
 const NewPost = () => {
+  const { hasRole } = useAuth()
+
   const [createPost, { loading, error }] = useMutation(CREATE_POST_MUTATION, {
     onCompleted: () => {
       toast.success('Post created')
@@ -28,14 +31,16 @@ const NewPost = () => {
   }
 
   return (
-    <div className="rw-segment">
-      <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">New Post</h2>
-      </header>
-      <div className="rw-segment-main">
-        <PostForm onSave={onSave} loading={loading} error={error} />
+    (hasRole('admin') || hasRole('moderator') || hasRole('user')) && (
+      <div className="rw-segment">
+        <header className="rw-segment-header">
+          <h2 className="rw-heading rw-heading-secondary">New Post</h2>
+        </header>
+        <div className="rw-segment-main">
+          <PostForm onSave={onSave} loading={loading} error={error} />
+        </div>
       </div>
-    </div>
+    )
   )
 }
 
