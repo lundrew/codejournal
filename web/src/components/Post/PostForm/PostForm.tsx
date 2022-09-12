@@ -1,3 +1,4 @@
+import { useAuth } from '@redwoodjs/auth'
 import {
   Form,
   FormError,
@@ -11,6 +12,8 @@ const PostForm = (props) => {
   const onSubmit = (data) => {
     props.onSave(data, props?.post?.id)
   }
+
+  const { currentUser } = useAuth()
 
   return (
     <div className="rw-form-wrapper">
@@ -94,9 +97,6 @@ const PostForm = (props) => {
 
         <FieldError name="codeSnippet" className="rw-field-error" />
 
-        <FieldError name="title" className="rw-field-error" />
-
-        {/* author below line */}
         <Label
           name="authorId"
           className="rw-label"
@@ -107,7 +107,7 @@ const PostForm = (props) => {
 
         <TextField
           name="authorId"
-          defaultValue={'1'}
+          defaultValue={currentUser.id}
           typeof="int"
           className="rw-input"
           errorClassName="rw-input rw-input-error"
