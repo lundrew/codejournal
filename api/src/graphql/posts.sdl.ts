@@ -5,6 +5,7 @@ export const schema = gql`
     explanation: String!
     codeLanguage: String!
     codeSnippet: String!
+    authorId: Int!
     createdAt: DateTime!
   }
 
@@ -18,6 +19,7 @@ export const schema = gql`
     explanation: String!
     codeLanguage: String!
     codeSnippet: String!
+    authorId: Int!
   }
 
   input UpdatePostInput {
