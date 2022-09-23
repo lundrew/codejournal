@@ -7,18 +7,29 @@ Welcome to [RedwoodJS](https://redwoodjs.com)!
 > - Redwood requires [Node.js](https://nodejs.org/en/) (>=14.19.x <=16.x) and [Yarn](https://yarnpkg.com/) (>=1.15)
 > - Are you on Windows? For best results, follow our [Windows development setup](https://redwoodjs.com/docs/how-to/windows-development-setup) guide
 
-Start by installing dependencies:
+Full instruction to get started:
 
-```
-yarn install
-```
+run $yarn install
+run $yarn rw dev
 
-Then change into that directory and start the development server:
+## In a new terminal
+run $yarn redwood prisma migrate reset
+run $yarn rw Prisma studio
 
-```
-cd eureka-project
-yarn redwood dev
-```
+create a file in the root directory named “.env”
+run $yarn rw g secret
+
+Input “SESSION_SECRET=yourgeneratedsecret” into the .env file
+
+Restart the rw dev and the data/login should be working
+
+
+
+
+
+
+
+
 
 Your browser should automatically open to http://localhost:8910 where you'll see the Welcome Page, which links out to a ton of great resources.
 
