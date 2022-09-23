@@ -9,28 +9,28 @@ Welcome to [RedwoodJS](https://redwoodjs.com)!
 
 Full instruction to get started:
 
-> ```
+```
 git clone https://github.com/SideProjLun/codejournal.git
-> ```
+```
 cd codejournal
-> ```
+```
 run $yarn install
-> ```
+```
 run $yarn rw dev
 ## In a new terminal
-> ```
+```
 run $yarn redwood prisma migrate reset
-> ```
+```
 run $yarn rw Prisma studio
-> ```
+```
 create a file in the root directory named “.env”
-> ```
+```
 run $yarn rw g secret
-> ```
+```
 Input “SESSION_SECRET=yourgeneratedsecret” into the .env file
-> ```
+```
 Restart the rw dev and the data/login should be working
-> ```
+```
 
 
 
