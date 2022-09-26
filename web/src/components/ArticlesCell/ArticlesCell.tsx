@@ -32,6 +32,7 @@ export const Success = ({ articles }: CellSuccessProps<ArticlesQuery>) => {
       {articles.map((article) => (
         <Article article={article} key={article.id} summary={true} />
       ))}
+
     </div>
   )
 }

@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web'
 
-import BlogLayout from './BlogLayout'
+import AdminLayout from './AdminLayout'
 
 //   Improve this test with help from the Redwood Testing Doc:
 //   https://redwoodjs.com/docs/testing#testing-pages-layouts
 
-describe('BlogLayout', () => {
+describe('AdminLayout', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<BlogLayout />)
+      render(<AdminLayout />)
     }).not.toThrow()
   })
 })

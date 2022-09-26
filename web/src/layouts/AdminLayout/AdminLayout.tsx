@@ -2,11 +2,11 @@ import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
 
-type BlogLayoutProps = {
+type AdminLayoutProps = {
   children?: React.ReactNode
 }
 
-const BlogLayout = ({ children }: BlogLayoutProps) => {
+const AdminLayout = ({ children }: AdminLayoutProps) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
 
   return (
@@ -15,7 +15,7 @@ const BlogLayout = ({ children }: BlogLayoutProps) => {
       <header>
         <div className="flex-between">
           <h1>
-            <Link to={routes.home()}>Redwood Blog</Link>
+            <Link to={routes.home()}>Code Journal</Link>
           </h1>
           {isAuthenticated ? (
             <div>
@@ -47,4 +47,4 @@ const BlogLayout = ({ children }: BlogLayoutProps) => {
   )
 }
 
-export default BlogLayout
+export default AdminLayout
