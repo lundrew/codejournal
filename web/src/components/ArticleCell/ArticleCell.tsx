@@ -8,6 +8,8 @@ export const QUERY = gql`
       id
       title
       explanation
+      codeLanguage
+      codeSnippet
       createdAt
     }
   }

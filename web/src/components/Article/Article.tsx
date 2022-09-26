@@ -45,4 +45,3 @@ const Article = ({ article, summary = false }: Props) => {
 
 export default Article
 
-// issues on "Success" ArticlesCell for Storybook... something with the truncate to shorten the paragraph.... low priority error...refer to Tutorial Ch.5 Our First Story... skipped Testing... moved onto Building a Component the Redwood Way
