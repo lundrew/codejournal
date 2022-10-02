@@ -16,6 +16,8 @@ const Routes = () => {
         <Route path="/" page={HomePage} name="home" />
         <Route path="/login" page={LoginPage} name="login" />
         <Route path="/signup" page={SignupPage} name="signup" />
+        <Route path="/forgotPassword" page={ForgotPasswordPage} name="signup" />
+
       </Set>
       <Set wrap={DashboardLayout}>
         <Route path="/contact" page={ContactPage} name="contact" />

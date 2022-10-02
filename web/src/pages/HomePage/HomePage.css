@@ -46,7 +46,7 @@ body {
 }
 
 .logInButton {
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   background-color: whitesmoke;
   width: 120px;
   height: 50px;
@@ -60,7 +60,7 @@ body {
 }
 
 .signUpButton {
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   background-color: whitesmoke;
   width: 120px;
   height: 50px;
@@ -78,29 +78,23 @@ button:hover {
   background-color: black;
 }
 
-
-
-
-
-
-
 /* Window Resizing */
 @media (max-width: 1300px) {
-.logInButton {
-margin-left: 400px;
-}
-.signUpButton {
-  margin-left: 400px;
-}
+  .logInButton {
+    margin-left: 400px;
+  }
+  .signUpButton {
+    margin-left: 400px;
+  }
 }
 @media (max-width: 1050px) {
   .logInButton {
-  margin-left: 300px;
+    margin-left: 300px;
   }
   .signUpButton {
     margin-left: 300px;
   }
-  }
+}
 @media (max-width: 960px) {
   .title {
     font-size: 34px;
@@ -156,4 +150,4 @@ margin-left: 400px;
     margin-top: -230px;
     margin-left: 150px;
   }
-  }
+}
