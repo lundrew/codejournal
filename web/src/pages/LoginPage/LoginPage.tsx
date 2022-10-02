@@ -1,7 +1,5 @@
+import { Link, navigate, routes } from '@redwoodjs/router'
 import { useRef } from 'react'
-import { useEffect } from 'react'
-
-import { useAuth } from '@redwoodjs/auth'
 import {
   Form,
   Label,
@@ -10,9 +8,10 @@ import {
   Submit,
   FieldError,
 } from '@redwoodjs/forms'
-import { Link, navigate, routes } from '@redwoodjs/router'
+import { useAuth } from '@redwoodjs/auth'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
+import { useEffect } from 'react'
 
 const LoginPage = () => {
   const { isAuthenticated, logIn } = useAuth()
@@ -23,7 +22,7 @@ const LoginPage = () => {
     }
   }, [isAuthenticated])
 
-  const usernameRef = useRef<HTMLInputElement>()
+  const usernameRef = useRef()
   useEffect(() => {
     usernameRef.current.focus()
   }, [])
@@ -44,7 +43,7 @@ const LoginPage = () => {
     <>
       <MetaTags title="Login" />
 
-      <main className="rw-main">
+      <main className="rw-main mx-auto mt-12 w-96">
         <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
         <div className="rw-scaffold rw-login-container">
           <div className="rw-segment">
@@ -97,14 +96,14 @@ const LoginPage = () => {
                     }}
                   />
 
-                  <div className="rw-forgot-link">
-                    {/* <Link
+                  {/* <div className="rw-forgot-link">
+                    <Link
                       to={routes.forgotPassword()}
-                      className="rw-forgot-link"
+                      className="rw-forgot-link underline"
                     >
                       Forgot Password?
-                    </Link> */}
-                  </div>
+                    </Link>
+                  </div> */}
 
                   <FieldError name="password" className="rw-field-error" />
 
@@ -115,7 +114,7 @@ const LoginPage = () => {
               </div>
             </div>
           </div>
-          <div className="rw-login-link">
+          <div className="rw-login-link mt-2 text-center">
             <span>Don&apos;t have an account?</span>{' '}
             <Link to={routes.signup()} className="rw-link">
               Sign up!
@@ -128,4 +127,3 @@ const LoginPage = () => {
 }
 
 export default LoginPage
-
