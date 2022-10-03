@@ -3,6 +3,7 @@ import { Private, Router, Route, Set } from '@redwoodjs/router'
 import AdminLayout from 'src/layouts/AdminLayout'
 import DashboardLayout from 'src/layouts/DashboardLayout'
 import HomePage from './pages/HomePage/HomePage'
+import UserDashboardPage from './pages/UserDashboardPage/UserDashboardPage'
 
 const Routes = () => {
   return (
@@ -20,6 +21,7 @@ const Routes = () => {
 
       </Set>
       <Set wrap={DashboardLayout}>
+        <Route path="/userdashboard" page={UserDashboardPage} name="userDashboard" />
         <Route path="/contact" page={ContactPage} name="contact" />
         <Route path="/about" page={AboutPage} name="about" />
         <Route path="/login" page={LoginPage} name="login" />
