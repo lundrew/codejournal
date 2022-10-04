@@ -3,11 +3,13 @@ body {
 }
 
 .title {
-  font-size: 34px;
+  font-size: 30px;
   display: flex;
   flex: auto;
   padding: 3rem;
   font-family: 'Inter', sans-serif;
+  margin-top: 40px;
+  margin-left: 80px;
 }
 
 .container {
