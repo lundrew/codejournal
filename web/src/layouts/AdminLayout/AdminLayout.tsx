@@ -42,6 +42,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
           </ul>
         </nav>
       </header>
+
       <main>{children}</main>
     </>
   )
