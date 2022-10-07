@@ -9,6 +9,7 @@ export const QUERY = gql`
   query FindPosts {
     posts {
       id
+      authorId
       title
       explanation
       codeLanguage

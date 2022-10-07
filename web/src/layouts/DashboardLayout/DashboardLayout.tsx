@@ -2,6 +2,7 @@ import { Link, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
 import './DashboardLayout.css'
 import DashboardPanel from 'src/components/DashboardPanel/DashboardPanel'
+import TotalPostsCard from 'src/components/TotalPostsCard/TotalPostsCard'
 
 type DashboardLayoutProps = {
   children: React.ReactNode
@@ -31,7 +32,10 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         </nav>
       </header>
       <div className="dashboardContent">
-        <DashboardPanel />
+        <div>
+      <DashboardPanel />
+        <TotalPostsCard />
+        </div>
         <div className="children">
           <main>{children}</main>
         </div>

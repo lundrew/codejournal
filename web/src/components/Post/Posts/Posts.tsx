@@ -3,6 +3,7 @@ import humanize from 'humanize-string'
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
+import { useAuth } from '@redwoodjs/auth'
 
 import { QUERY } from 'src/components/Post/PostsCell'
 
@@ -74,11 +75,48 @@ const PostsList = ({ posts }) => {
     }
   }
 
+  const { isAuthenticated, currentUser, logOut } = useAuth()
+
+
+
+
+
+
+
+
+
+
+  const totalPosts = () => {
+    let allPosts = posts.map(item => {
+      const container = item.authorId
+      return container
+    })
+
+    for (let i = 0; i < allPosts.length; i++) {
+      const element = allPosts;
+      console.log(element)
+      const emptyArray = []
+
+      // getting the number and pushing it into the array but we need all of the 1's showing up to then add them up
+      if (element[i] === currentUser.id) {
+        emptyArray.push(element[i])
+      }
+      return emptyArray
+    }
+  }
+  console.log(totalPosts())
+
+
+  // can do parseInt(emptyArray.length) once we have all the id's that match currentUser.id to add them up
+
+
+
   return (
     <div className="rw-segment rw-table-wrapper-responsive">
       <table className="rw-table">
         <thead>
           <tr>
+            <th>Author Id</th>
             <th>Id</th>
             <th>Title</th>
             <th>Explanation</th>
@@ -91,6 +129,7 @@ const PostsList = ({ posts }) => {
         <tbody>
           {posts.map((post) => (
             <tr key={post.id}>
+              <td>{truncate(post.authorId)}</td>
               <td>{truncate(post.id)}</td>
               <td>{truncate(post.title)}</td>
               <td>{truncate(post.explanation)}</td>
@@ -127,6 +166,19 @@ const PostsList = ({ posts }) => {
           ))}
         </tbody>
       </table>
+            {/* below does not belong, just test */}
+      <div className="totalPostsCard">
+      Total Posts
+      <li className="nav-li">
+            {isAuthenticated ? (
+              <div>
+                <span> {currentUser.id}    </span>{' '}
+
+              </div>
+            ) : (
+              <Link to={routes.login()}>Login</Link>
+            )}
+          </li>    </div>
     </div>
   )
 }
