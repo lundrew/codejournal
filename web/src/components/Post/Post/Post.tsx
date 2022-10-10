@@ -73,6 +73,9 @@ const Post = ({ post }) => {
             <tr>
               <th>Id</th>
               <td>{post.id}</td>
+            </tr>            <tr>
+              <th>Author Id</th>
+              <td>{post.authorId}</td>
             </tr><tr>
               <th>Title</th>
               <td>{post.title}</td>

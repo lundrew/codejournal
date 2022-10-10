@@ -1,5 +1,4 @@
 import { MetaTags } from '@redwoodjs/web'
-import './UserDashboardPanel.css'
 
 const UserDashboardPage = () => {
   return (

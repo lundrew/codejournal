@@ -3,7 +3,6 @@ import humanize from 'humanize-string'
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
-
 import { QUERY } from 'src/components/Post/PostsCell'
 
 const DELETE_POST_MUTATION = gql`
@@ -79,6 +78,7 @@ const PostsList = ({ posts }) => {
       <table className="rw-table">
         <thead>
           <tr>
+            <th>Author Id</th>
             <th>Id</th>
             <th>Title</th>
             <th>Explanation</th>
@@ -91,6 +91,7 @@ const PostsList = ({ posts }) => {
         <tbody>
           {posts.map((post) => (
             <tr key={post.id}>
+              <td>{truncate(post.authorId)}</td>
               <td>{truncate(post.id)}</td>
               <td>{truncate(post.title)}</td>
               <td>{truncate(post.explanation)}</td>

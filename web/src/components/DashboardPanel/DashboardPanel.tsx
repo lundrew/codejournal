@@ -2,6 +2,8 @@ import { Link, routes } from '@redwoodjs/router'
 import AddIcon from './../Assets/more.png'
 import PersonalIcon from './../Assets/contacts.png'
 import ListIcon from './../Assets/list.png'
+import './DashboardPanel.css'
+
 
 const DashboardPanel = () => {
   return (
