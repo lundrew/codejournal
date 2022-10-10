@@ -1,34 +1,29 @@
-import { getCurrentUser } from "src/lib/auth"
-import "./TotalPostsCard.css"
+import './TotalPostsCard.css'
 import { useAuth } from '@redwoodjs/auth'
-import { Link, routes } from '@redwoodjs/router'
-
 
 type DashboardLayoutProps = {
   children: React.ReactNode
 }
 
-const TotalPostsCard = () => {
-  const { isAuthenticated, currentUser, logOut } = useAuth()
+const TotalPostsCard = ({ posts }) => {
+  const { currentUser } = useAuth()
+
+  const newArray = []
+  posts &&
+    posts.map((item) => {
+      if (item.authorId === currentUser.id) {
+        newArray.push(item)
+      }
+    })
+
+  const currentUserPostCount = newArray.length
 
   return (
     <div className="totalPostsCard">
-      Total Posts
-      <li className="nav-li">
-            {isAuthenticated ? (
-              <div>
-                <span> {currentUser.id}    </span>{' '}
-
-              </div>
-            ) : (
-              <Link to={routes.login()}>Login</Link>
-            )}
-          </li>    </div>
+      <h1>{currentUserPostCount}</h1>
+      <h2>Total Posts</h2>
+    </div>
   )
 }
 
 export default TotalPostsCard
-
-
-
-// on line 19 we need to get the number of total posts from prisma named posts[]

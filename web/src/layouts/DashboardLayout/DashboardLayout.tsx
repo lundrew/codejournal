@@ -3,6 +3,8 @@ import { useAuth } from '@redwoodjs/auth'
 import './DashboardLayout.css'
 import DashboardPanel from 'src/components/DashboardPanel/DashboardPanel'
 import TotalPostsCard from 'src/components/TotalPostsCard/TotalPostsCard'
+import PostsCell from 'src/components/Post/PostsCell'
+import TotalPostsCountCell from 'src/components/TotalPostsCountCell'
 
 type DashboardLayoutProps = {
   children: React.ReactNode
@@ -10,6 +12,7 @@ type DashboardLayoutProps = {
 
 const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
+
 
   return (
     <div>
@@ -34,7 +37,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       <div className="dashboardContent">
         <div>
       <DashboardPanel />
-        <TotalPostsCard />
+      <TotalPostsCountCell />
         </div>
         <div className="children">
           <main>{children}</main>
