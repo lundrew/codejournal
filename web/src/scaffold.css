@@ -66,7 +66,7 @@
   border-width: 1px;
   border-color: #e5e7eb;
   overflow: hidden;
-  width: 100%;
+  width: 1000px;
   scrollbar-color: #a1a1aa transparent;
 }
 .rw-segment::-webkit-scrollbar {
@@ -135,6 +135,7 @@
 }
 .rw-form-wrapper {
   box-sizing: border-box;
+  padding-top: 2rem;
   font-size: 0.875rem;
   margin-top: -1rem;
 }
@@ -295,7 +296,7 @@
 }
 .rw-table {
   table-layout: auto;
-  width: 100%;
+  width: auto;
   font-size: 0.875rem;
 }
 .rw-table th,

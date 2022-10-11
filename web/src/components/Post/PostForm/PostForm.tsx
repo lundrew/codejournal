@@ -5,8 +5,11 @@ import {
   FieldError,
   Label,
   TextField,
+  SelectField,
   Submit,
 } from '@redwoodjs/forms'
+
+import './PostForm.css'
 
 const PostForm = (props) => {
   const onSubmit = (data) => {
@@ -14,6 +17,8 @@ const PostForm = (props) => {
   }
 
   const { currentUser } = useAuth()
+
+  const languages = ['HTML', 'CSS', 'Javascript', 'TypeScript', 'Ruby', 'Java', 'Python', 'C++', 'C#', 'R', 'Golang', 'Swift', 'Rust', 'Scheme', 'Kotlin', 'Perl', 'PHP', 'Scala']
 
   return (
     <div className="rw-form-wrapper">
@@ -27,7 +32,7 @@ const PostForm = (props) => {
 
         <Label
           name="title"
-          className="rw-label"
+          className="title-rw-label"
           errorClassName="rw-label rw-label-error"
         >
           Title
@@ -36,31 +41,14 @@ const PostForm = (props) => {
         <TextField
           name="title"
           defaultValue={props.post?.title}
-          className="rw-input"
+          className="title-rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
 
         <FieldError name="title" className="rw-field-error" />
 
-        <Label
-          name="explanation"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Explanation
-        </Label>
-
-        <TextField
-          name="explanation"
-          defaultValue={props.post?.explanation}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-
-        <FieldError name="explanation" className="rw-field-error" />
-
+        {/* First One */}
         <Label
           name="codeLanguage"
           className="rw-label"
@@ -69,15 +57,26 @@ const PostForm = (props) => {
           Code language
         </Label>
 
-        <TextField
+        <SelectField
           name="codeLanguage"
+          className="language-rw-input"
           defaultValue={props.post?.codeLanguage}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
+          validation={{
+            required: true,
+          }}
+        >
+          {languages &&
+            languages.map((value) => (
+              <option value={value} key={value}>
+                {value}
+              </option>
+            ))}
+        </SelectField>
+        <FieldError name="selectSingle" style={{ color: 'red' }} />
 
         <FieldError name="codeLanguage" className="rw-field-error" />
+
+        {/* Second One */}
 
         <Label
           name="codeSnippet"
@@ -97,23 +96,27 @@ const PostForm = (props) => {
 
         <FieldError name="codeSnippet" className="rw-field-error" />
 
+        {/* Third One */}
+
         <Label
-          name="authorId"
+          name="explanation"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Author ID
+          Explanation
         </Label>
 
         <TextField
-          name="authorId"
-          defaultValue={currentUser.id}
-          typeof="int"
+          name="explanation"
+          defaultValue={props.post?.explanation}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: false, valueAsNumber: true }}
+          validation={{ required: true }}
         />
 
+        <FieldError name="explanation" className="rw-field-error" />
+
+        {/* Fourth One */}
         <FieldError name="title" className="rw-field-error" />
 
         <div className="rw-button-group">

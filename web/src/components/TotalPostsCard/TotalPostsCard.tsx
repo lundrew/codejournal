@@ -21,7 +21,7 @@ const TotalPostsCard = ({ posts }) => {
   return (
     <div className="totalPostsCard">
       <h1>{currentUserPostCount}</h1>
-      <h2>Total Posts</h2>
+      <h2>Entries</h2>
     </div>
   )
 }

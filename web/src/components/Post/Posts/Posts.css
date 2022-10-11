@@ -1,0 +1,57 @@
+.postsContainer {
+  transition: all 0.5s ease;
+  background-color: whitesmoke;
+  width: 1000px;
+  height: auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
+}
+
+.cardTitle {
+  color: #292929;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+th {
+  padding-right: 4rem;
+  padding-top: 2rem;
+  opacity: 50%;
+  font-size: 12px;
+  font-weight: 400;
+  color: #292929;
+}
+
+td {
+  padding-left: 1rem;
+  padding-right: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  font-size: 10px;
+  color: #292929;
+  border-bottom: 1px solid rgba(41, 41, 41, .2);
+}
+
+tr {
+}
+
+.trashIcon {
+  width: 20px;
+  opacity: 80%;
+}
+
+.trashIcon:hover {
+  background-color: seashell;
+  opacity: 100%;
+
+}
+
+
+
+
+
+
