@@ -5,6 +5,7 @@ import {
   FieldError,
   Label,
   TextField,
+  TextAreaField,
   SelectField,
   Submit,
 } from '@redwoodjs/forms'
@@ -18,7 +19,26 @@ const PostForm = (props) => {
 
   const { currentUser } = useAuth()
 
-  const languages = ['HTML', 'CSS', 'Javascript', 'TypeScript', 'Ruby', 'Java', 'Python', 'C++', 'C#', 'R', 'Golang', 'Swift', 'Rust', 'Scheme', 'Kotlin', 'Perl', 'PHP', 'Scala']
+  const languages = [
+    'HTML',
+    'CSS',
+    'Javascript',
+    'TypeScript',
+    'Ruby',
+    'Java',
+    'Python',
+    'C++',
+    'C#',
+    'R',
+    'Golang',
+    'Swift',
+    'Rust',
+    'Scheme',
+    'Kotlin',
+    'Perl',
+    'PHP',
+    'Scala',
+  ]
 
   return (
     <div className="rw-form-wrapper">
@@ -48,7 +68,6 @@ const PostForm = (props) => {
 
         <FieldError name="title" className="rw-field-error" />
 
-        {/* First One */}
         <Label
           name="codeLanguage"
           className="rw-label"
@@ -76,47 +95,43 @@ const PostForm = (props) => {
 
         <FieldError name="codeLanguage" className="rw-field-error" />
 
-        {/* Second One */}
-
         <Label
-          name="codeSnippet"
+          name="Insert Code Here"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
           Code snippet
         </Label>
 
-        <TextField
+        <TextAreaField
           name="codeSnippet"
           defaultValue={props.post?.codeSnippet}
-          className="rw-input"
+          className="snippet-rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
+          spellcheck="false"
         />
 
         <FieldError name="codeSnippet" className="rw-field-error" />
 
-        {/* Third One */}
-
         <Label
-          name="explanation"
+          name="Insert Code Explained Here"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
           Explanation
         </Label>
 
-        <TextField
+        <TextAreaField
           name="explanation"
           defaultValue={props.post?.explanation}
-          className="rw-input"
+          className="explanation-rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
 
         <FieldError name="explanation" className="rw-field-error" />
 
-        {/* Fourth One */}
         <FieldError name="title" className="rw-field-error" />
 
         <div className="rw-button-group">

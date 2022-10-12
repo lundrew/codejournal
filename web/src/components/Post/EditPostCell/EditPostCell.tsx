@@ -4,7 +4,6 @@ import { navigate, routes } from '@redwoodjs/router'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
-import './EditPostCell.css'
 
 import PostForm from 'src/components/Post/PostForm'
 
@@ -55,8 +54,8 @@ export const Success = ({ post }: CellSuccessProps<EditPostById>) => {
   }
 
   return (
-    <div className="editPostContainer">
-      <div className="editPostFields">
+    <div className="postContainer">
+      <div className="postFields">
         <PostForm post={post} onSave={onSave} error={error} loading={loading} />
       </div>
     </div>
