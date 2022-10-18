@@ -59,7 +59,7 @@ const LoginPage = () => {
                     className="rw-label"
                     errorClassName="rw-label rw-label-error"
                   >
-                    Username
+                    Email
                   </Label>
                   <TextField
                     name="username"
@@ -96,14 +96,14 @@ const LoginPage = () => {
                     }}
                   />
 
-                  {/* <div className="rw-forgot-link">
+                  <div className="rw-forgot-link">
                     <Link
                       to={routes.forgotPassword()}
                       className="rw-forgot-link underline"
                     >
                       Forgot Password?
                     </Link>
-                  </div> */}
+                  </div>
 
                   <FieldError name="password" className="rw-field-error" />
 

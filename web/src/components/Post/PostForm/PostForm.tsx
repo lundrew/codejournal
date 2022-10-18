@@ -8,6 +8,8 @@ import {
   TextAreaField,
   SelectField,
   Submit,
+  HiddenField,
+  NumberField,
 } from '@redwoodjs/forms'
 
 import './PostForm.css'
@@ -133,6 +135,13 @@ const PostForm = (props) => {
         <FieldError name="explanation" className="rw-field-error" />
 
         <FieldError name="title" className="rw-field-error" />
+
+        <NumberField
+          name="authorId"
+          defaultValue={currentUser.id}
+          validation={{ required: true }}
+          hidden
+        />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">

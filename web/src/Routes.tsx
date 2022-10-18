@@ -1,4 +1,5 @@
 import { Private, Router, Route, Set } from '@redwoodjs/router'
+import { useAuth } from '@redwoodjs/auth'
 
 import AdminLayout from 'src/layouts/AdminLayout'
 import DashboardLayout from 'src/layouts/DashboardLayout'
@@ -15,14 +16,12 @@ const Routes = () => {
         <Route path="/admin/posts/{id:Int}" page={PostPostPage} name="post" />
         <Route path="/admin/posts" page={PostPostsPage} name="posts" />
       </Set>
-      <Set>
-        <Route path="/" page={HomePage} name="home" />
-        <Route path="/login" page={LoginPage} name="login" />
-        <Route path="/signup" page={SignupPage} name="signup" />
-        <Route path="/forgotPassword" page={ForgotPasswordPage} name="signup" />
-        <Route path="/contact" page={ContactPage} name="contact" />
-        <Route path="/about" page={AboutPage} name="about" />
-      </Set>
+      <Route path="/" page={HomePage} name="home" />
+      <Route path="/login" page={LoginPage} name="login" />
+      <Route path="/signup" page={SignupPage} name="signup" />
+      <Route path="/forgotPassword" page={ForgotPasswordPage} name="forgotPassword" />
+      <Route path="/contact" page={ContactPage} name="contact" />
+      <Route path="/about" page={AboutPage} name="about" />
       <Set private unauthenticated="home" wrap={DashboardLayout}>
         <Route path="/userdashboard" page={UserDashboardPage} name="userDashboard" />
         <Route path="/addpost" page={AddPostPage} name="addPost" />

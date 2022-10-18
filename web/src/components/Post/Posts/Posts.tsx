@@ -6,6 +6,7 @@ import { toast } from '@redwoodjs/web/toast'
 import { QUERY } from 'src/components/Post/PostsCell'
 import './Posts.css'
 import Trash from './../../Assets/trash-can.png'
+import { useAuth } from '@redwoodjs/auth'
 
 const DELETE_POST_MUTATION = gql`
   mutation DeletePostMutation($id: Int!) {
@@ -75,19 +76,31 @@ const PostsList = ({ posts }) => {
     }
   }
 
+  const { currentUser } = useAuth()
+
+  const currentUserPosts = []
+  posts &&
+    posts.map((item) => {
+      if (item.authorId === currentUser.id) {
+        currentUserPosts.push(item)
+      }
+    })
+
+  const currentUserPostCount = currentUserPosts.length
+
   return (
     <div className="postsContainer">
       <table>
-        <h1 className="cardTitle">Post List</h1>
-        <tr>
+        <thead className="cardTitle">Entry List</thead>
+        <tbody>
           <th>No</th>
           <th>Date</th>
           <th>Title</th>
           <th>Lang</th>
           <th>&nbsp;</th>
-        </tr>
+        </tbody>
         <tbody>
-          {posts.map((post) => (
+          {currentUserPosts.map((post) => (
             <tr key={post.id}>
               <td>{truncate(post.id)}</td>
               <td>{timeTag(post.createdAt)}</td>
