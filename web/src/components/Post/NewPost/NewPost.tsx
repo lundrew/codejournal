@@ -32,11 +32,9 @@ const NewPost = () => {
 
   return (
     (hasRole('admin') || hasRole('moderator') || hasRole('user')) && (
-      <div className="rw-segment">
-        <header className="rw-segment-header">
-          <h2 className="rw-heading rw-heading-secondary">New Post</h2>
-        </header>
-        <div className="rw-segment-main">
+      <div className="postContainer">
+        <div className="postFields">
+          <h1>Log Entry</h1>
           <PostForm onSave={onSave} loading={loading} error={error} />
         </div>
       </div>

@@ -8,6 +8,7 @@ export const QUERY = gql`
   query FindPostById($id: Int!) {
     post: post(id: $id) {
       id
+      authorId
       title
       explanation
       codeLanguage

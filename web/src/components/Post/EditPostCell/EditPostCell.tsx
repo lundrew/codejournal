@@ -6,11 +6,13 @@ import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import PostForm from 'src/components/Post/PostForm'
+import { useAuth } from '@redwoodjs/auth'
 
 export const QUERY = gql`
   query EditPostById($id: Int!) {
     post: post(id: $id) {
       id
+      authorId
       title
       explanation
       codeLanguage
@@ -23,6 +25,7 @@ const UPDATE_POST_MUTATION = gql`
   mutation UpdatePostMutation($id: Int!, $input: UpdatePostInput!) {
     updatePost(id: $id, input: $input) {
       id
+      authorId
       title
       explanation
       codeLanguage
@@ -53,14 +56,24 @@ export const Success = ({ post }: CellSuccessProps<EditPostById>) => {
     updatePost({ variables: { id, input } })
   }
 
+  const { currentUser } = useAuth()
+
   return (
-    <div className="rw-segment">
-      <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">Edit Post {post.id}</h2>
-      </header>
-      <div className="rw-segment-main">
-        <PostForm post={post} onSave={onSave} error={error} loading={loading} />
-      </div>
-    </div>
+    <>
+      {currentUser.id === post.authorId ? (
+        <div className="postContainer">
+          <div className="postFields">
+            <PostForm
+              post={post}
+              onSave={onSave}
+              error={error}
+              loading={loading}
+            />
+          </div>
+        </div>
+      ) : (
+        <>{navigate(routes.userDashboard())}</>
+      )}
+    </>
   )
 }

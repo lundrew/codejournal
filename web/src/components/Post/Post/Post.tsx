@@ -3,6 +3,7 @@ import humanize from 'humanize-string'
 import { Link, routes, navigate } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
+import { useAuth } from '@redwoodjs/auth'
 
 const DELETE_POST_MUTATION = gql`
   mutation DeletePostMutation($id: Int!) {
@@ -62,54 +63,70 @@ const Post = ({ post }) => {
     }
   }
 
+  const { currentUser } = useAuth()
+
   return (
     <>
-      <div className="rw-segment">
-        <header className="rw-segment-header">
-          <h2 className="rw-heading rw-heading-secondary">Post {post.id} Detail</h2>
-        </header>
-        <table className="rw-table">
-          <tbody>
-            <tr>
-              <th>Id</th>
-              <td>{post.id}</td>
-            </tr>            <tr>
-              <th>Author Id</th>
-              <td>{post.authorId}</td>
-            </tr><tr>
-              <th>Title</th>
-              <td>{post.title}</td>
-            </tr><tr>
-              <th>Explanation</th>
-              <td>{post.explanation}</td>
-            </tr><tr>
-              <th>Code language</th>
-              <td>{post.codeLanguage}</td>
-            </tr><tr>
-              <th>Code snippet</th>
-              <td>{post.codeSnippet}</td>
-            </tr><tr>
-              <th>Created at</th>
-              <td>{timeTag(post.createdAt)}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <nav className="rw-button-group">
-        <Link
-          to={routes.editPost({ id: post.id })}
-          className="rw-button rw-button-blue"
-        >
-          Edit
-        </Link>
-        <button
-          type="button"
-          className="rw-button rw-button-red"
-          onClick={() => onDeleteClick(post.id)}
-        >
-          Delete
-        </button>
-      </nav>
+      {currentUser.id === post.authorId ? (
+        <div>
+          <div className="rw-segment">
+            <header className="rw-segment-header">
+              <h2 className="rw-heading rw-heading-secondary">
+                Post {post.id} Detail
+              </h2>
+            </header>
+            <table className="rw-table">
+              <tbody>
+                <tr>
+                  <th>Id</th>
+                  <td>{post.id}</td>
+                </tr>{' '}
+                <tr>
+                  <th>Author Id</th>
+                  <td>{post.authorId}</td>
+                </tr>
+                <tr>
+                  <th>Title</th>
+                  <td>{post.title}</td>
+                </tr>
+                <tr>
+                  <th>Explanation</th>
+                  <td>{post.explanation}</td>
+                </tr>
+                <tr>
+                  <th>Code language</th>
+                  <td>{post.codeLanguage}</td>
+                </tr>
+                <tr>
+                  <th>Code snippet</th>
+                  <td>{post.codeSnippet}</td>
+                </tr>
+                <tr>
+                  <th>Created at</th>
+                  <td>{timeTag(post.createdAt)}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <nav className="rw-button-group">
+            <Link
+              to={routes.editPost({ id: post.id })}
+              className="rw-button rw-button-blue"
+            >
+              Edit
+            </Link>
+            <button
+              type="button"
+              className="rw-button rw-button-red"
+              onClick={() => onDeleteClick(post.id)}
+            >
+              Delete
+            </button>
+          </nav>
+        </div>
+      ) : (
+        <>{navigate(routes.userDashboard())}</>
+      )}
     </>
   )
 }

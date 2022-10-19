@@ -2,6 +2,9 @@ import { AuthenticationError, ForbiddenError } from '@redwoodjs/graphql-server'
 
 import { db } from './db'
 
+import { parseJWT } from '@redwoodjs/api'
+
+
 /**
  * The session object sent in as the first argument to getCurrentUser() will
  * have a single key `id` containing the unique ID of the logged in user
@@ -22,9 +25,13 @@ import { db } from './db'
 export const getCurrentUser = async (session) => {
   return await db.user.findUnique({
     where: { id: session.id },
-    select: { id: true, email: true, roles: true },
+    select: { id: true, email: true, roles: true, posts: true, name: true },
   })
 }
+
+// export const getCurrentUser = async (decoded) => {
+//   return context.currentUser || { ...decoded, roles: parseJWT({ decoded }).roles }
+// }
 
 /**
  * The user is authenticated if there is a currentUser in the context
@@ -81,6 +88,7 @@ export const hasRole = (roles: AllowedRoles): boolean => {
   return false
 }
 
+
 /**
  * Use requireAuth in your services to check that a user is logged in,
  * whether or not they are assigned a role, and optionally raise an
@@ -104,3 +112,6 @@ export const requireAuth = ({ roles }: { roles: AllowedRoles }) => {
     throw new ForbiddenError("You don't have access to do that.")
   }
 }
+
+
+
