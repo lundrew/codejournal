@@ -86,8 +86,6 @@ const PostsList = ({ posts }) => {
       }
     })
 
-  const currentUserPostCount = currentUserPosts.length
-
   return (
     <div className="postsContainer">
       <table>
