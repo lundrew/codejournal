@@ -43,7 +43,6 @@
 .postContainer {
   transition: all 0.5s ease;
   background-color: whitesmoke;
-  width: 1000px;
   height: auto;
   padding: 1rem;
   display: flex;
@@ -55,4 +54,15 @@
 
 .postFields {
   width: 60rem;
+}
+
+.iconCheckBox {
+  width: 30px;
+  opacity: 80%;
+  margin: 10px;
+}
+
+.iconCheckBox:hover {
+  background-color: seashell;
+  opacity: 100%;
 }

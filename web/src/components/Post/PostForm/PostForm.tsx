@@ -13,6 +13,7 @@ import {
 } from '@redwoodjs/forms'
 
 import './PostForm.css'
+import CheckBox from './../../Assets/checkbox.png'
 
 const PostForm = (props) => {
   const onSubmit = (data) => {
@@ -42,6 +43,8 @@ const PostForm = (props) => {
     'Scala',
   ]
 
+  console.log(currentUser.id)
+
   return (
     <div className="rw-form-wrapper">
       <Form onSubmit={onSubmit} error={props.error}>
@@ -66,6 +69,7 @@ const PostForm = (props) => {
           className="title-rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
+          maxLength={80}
         />
 
         <FieldError name="title" className="rw-field-error" />
@@ -144,8 +148,8 @@ const PostForm = (props) => {
         />
 
         <div className="rw-button-group">
-          <Submit disabled={props.loading} className="rw-button rw-button-blue">
-            Save
+          <Submit disabled={props.loading} className="iconCheckBox">
+            <img src={CheckBox} />{' '}
           </Submit>
         </div>
       </Form>

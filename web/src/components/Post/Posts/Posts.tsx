@@ -6,6 +6,8 @@ import { toast } from '@redwoodjs/web/toast'
 import { QUERY } from 'src/components/Post/PostsCell'
 import './Posts.css'
 import Trash from './../../Assets/trash-can.png'
+import Edit from './../../Assets/edit.png'
+import View from './../../Assets/journal.png'
 import { useAuth } from '@redwoodjs/auth'
 
 const DELETE_POST_MUTATION = gql`
@@ -31,14 +33,22 @@ const formatEnum = (values: string | string[] | null | undefined) => {
 
 const truncate = (text) => {
   let output = text
-  if (text && text.length > MAX_STRING_LENGTH) {
-    output = output.substring(0, MAX_STRING_LENGTH) + '...'
+  if (text && text.length > 30) {
+    output = output.substring(0, 30) + '...'
   }
   return output
 }
 
 const jsonTruncate = (obj) => {
   return truncate(JSON.stringify(obj, null, 2))
+}
+
+const timeTruncate = (text) => {
+  let output = text
+  if (text && text.length > 3) {
+    output = output.substring(0, 3) + '...'
+  }
+  return output
 }
 
 const timeTag = (datetime) => {
@@ -91,7 +101,7 @@ const PostsList = ({ posts }) => {
       <table>
         <thead className="cardTitle">Entry List</thead>
         <tbody>
-          <th>No</th>
+          {/* <th>No</th> */}
           <th>Date</th>
           <th>Title</th>
           <th>Lang</th>
@@ -100,7 +110,7 @@ const PostsList = ({ posts }) => {
         <tbody>
           {currentUserPosts.map((post) => (
             <tr key={post.id}>
-              <td>{truncate(post.id)}</td>
+              {/* <td>{truncate(post.id)}</td> */}
               <td>{timeTag(post.createdAt)}</td>
               <td>{truncate(post.title)}</td>
               <td>{truncate(post.codeLanguage)}</td>
@@ -109,24 +119,26 @@ const PostsList = ({ posts }) => {
                   <Link
                     to={routes.post({ id: post.id })}
                     title={'Show post '}
-                    className="rw-button rw-button-small"
+                    className="iconPosts"
                   >
-                    View
+                  <img src={View} />{' '}
+
                   </Link>
                   <Link
                     to={routes.editPost({ id: post.id })}
-                    title={'Edit post '}
-                    className="rw-button rw-button-small rw-button-blue"
+                    title={'Edit Post'}
+                    className="iconPosts"
                   >
-                    Edit
+                  <img src={Edit} />{' '}
                   </Link>
                   <button
                     type="button"
-                    title={'Delete'}
+                    title={'Delete Post'}
                     onClick={() => onDeleteClick(post.id)}
+                    className="iconPosts"
                   >
                     {' '}
-                    <img src={Trash} className="trashIcon" />{' '}
+                    <img src={Trash}/>{' '}
                   </button>
                 </nav>
               </td>

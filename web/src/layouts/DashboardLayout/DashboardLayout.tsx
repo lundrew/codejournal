@@ -20,8 +20,9 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         <nav>
           <li className="nav-li">
             {isAuthenticated ? (
-              <div>
-                <span>Welcome, {currentUser.name || currentUser.email}</span>{' '}
+              <div className='dashLayoutNav'>
+                <span className='currentUsername'>Welcome, {currentUser.name || currentUser.email}</span>{' '}
+                <div className='divider'></div>
                 <button className="logoutButton" onClick={logOut}>
                   Logout
                 </button>

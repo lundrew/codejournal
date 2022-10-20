@@ -62,11 +62,7 @@
   padding-bottom: 1rem;
 }
 .rw-segment {
-  border-radius: 0.5rem;
-  border-width: 1px;
-  border-color: #e5e7eb;
   overflow: hidden;
-  width: 1000px;
   scrollbar-color: #a1a1aa transparent;
 }
 .rw-segment::-webkit-scrollbar {
