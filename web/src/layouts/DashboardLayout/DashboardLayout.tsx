@@ -1,9 +1,8 @@
-import { Link, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
+import { Link, NavLink, routes } from '@redwoodjs/router'
+
 import './DashboardLayout.css'
 import DashboardPanel from 'src/components/DashboardPanel/DashboardPanel'
-import TotalPostsCard from 'src/components/TotalPostsCard/TotalPostsCard'
-import PostsCell from 'src/components/Post/PostsCell'
 import TotalPostsCountCell from 'src/components/TotalPostsCountCell'
 
 type DashboardLayoutProps = {
@@ -13,7 +12,6 @@ type DashboardLayoutProps = {
 const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
 
-
   return (
     <div>
       <header>
@@ -22,7 +20,9 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           <li className="nav-li">
             {isAuthenticated ? (
               <div>
-                <span>Welcome, {currentUser.email}</span>{' '}
+                <NavLink to={'/user'} activeClassName={''}>
+                  Welcome, {currentUser.email}
+                </NavLink>{' '}
                 <button className="logoutButton" onClick={logOut}>
                   Logout
                 </button>
@@ -36,8 +36,8 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       </header>
       <div className="dashboardContent">
         <div>
-      <DashboardPanel />
-      <TotalPostsCountCell />
+          <DashboardPanel />
+          <TotalPostsCountCell />
         </div>
         <div className="children">
           <main>{children}</main>
