@@ -68,7 +68,7 @@ const checkboxInputTag = (checked) => {
 const PostsList = ({ posts }) => {
   const [deletePost] = useMutation(DELETE_POST_MUTATION, {
     onCompleted: () => {
-      toast.success('Post deleted')
+      toast.success('Entry deleted')
     },
     onError: (error) => {
       toast.error(error.message)
@@ -96,6 +96,14 @@ const PostsList = ({ posts }) => {
       }
     })
 
+  const reversePosts = (arr) => {
+    let newArr = []
+    newArr.push(...arr)
+    return newArr.reverse()
+  }
+
+  const currentUserPostsReversed = reversePosts(currentUserPosts)
+
   return (
     <div className="postsContainer">
       <table>
@@ -108,7 +116,7 @@ const PostsList = ({ posts }) => {
           <th>&nbsp;</th>
         </tbody>
         <tbody>
-          {currentUserPosts.map((post) => (
+          {currentUserPostsReversed.map((post) => (
             <tr key={post.id}>
               {/* <td>{truncate(post.id)}</td> */}
               <td>{timeTag(post.createdAt)}</td>
@@ -121,15 +129,14 @@ const PostsList = ({ posts }) => {
                     title={'Show post '}
                     className="iconPosts"
                   >
-                  <img src={View} />{' '}
-
+                    <img src={View} />{' '}
                   </Link>
                   <Link
                     to={routes.editPost({ id: post.id })}
                     title={'Edit Post'}
                     className="iconPosts"
                   >
-                  <img src={Edit} />{' '}
+                    <img src={Edit} />{' '}
                   </Link>
                   <button
                     type="button"
@@ -138,7 +145,7 @@ const PostsList = ({ posts }) => {
                     className="iconPosts"
                   >
                     {' '}
-                    <img src={Trash}/>{' '}
+                    <img src={Trash} />{' '}
                   </button>
                 </nav>
               </td>

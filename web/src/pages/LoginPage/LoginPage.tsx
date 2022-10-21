@@ -84,18 +84,15 @@ const LoginPage = () => {
                 }}
               />
             </div>
+            <FieldError name="password" className="rw-field-error" />
 
-            <div className="lower">
-              <Link to={routes.forgotPassword()} className="footer">
-                Forgot Password
-              </Link>
-
-              <FieldError name="password" className="rw-field-error" />
-              <Link to={routes.signup()} className="footer">
-                Sign Up
-              </Link>
-              <Submit className="logInButtonForm">Login</Submit>
-            </div>
+            <Link to={routes.signup()} className="form-links">
+              Sign Up
+            </Link>
+            <Link to={routes.forgotPassword()} className="form-links">
+              Forgot Password
+            </Link>
+            <Submit className="logInButtonForm">Login</Submit>
           </Form>
         </div>
       </main>

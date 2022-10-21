@@ -93,11 +93,9 @@ const SignupPage = () => {
                 <FieldError name="password" className="rw-field-error" />
               </div>
 
-              <div className="lower">
-                <Link to={routes.login()} className="footer">
-                  Log in
-                </Link>
-              </div>
+              <Link to={routes.login()} className="form-links">
+                Log in
+              </Link>
               <Submit className="signUpButton">Sign Up</Submit>
             </Form>
           </div>

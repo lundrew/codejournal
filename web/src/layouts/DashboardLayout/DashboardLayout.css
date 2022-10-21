@@ -43,7 +43,7 @@ nav {
 }
 
 .logoutButton {
-  transition: all 0.5s ease;
+  transition: all 0.8s ease;
   background-color: whitesmoke;
   width: 75px;
   height: 35px;
@@ -51,9 +51,13 @@ nav {
   align-items: center;
   justify-content: center;
   margin-top: 0px;
-  /* margin-left: 20px; */
   border-radius: 30px;
   box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
+}
+
+.logoutButton:hover {
+  color: whitesmoke;
+  background-color: black;
 }
 
 .divider {

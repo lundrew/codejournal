@@ -1,7 +1,7 @@
 .postsContainer {
   transition: all 0.5s ease;
   background-color: whitesmoke;
-  width: auto;
+  width: 1000px;
   min-width: 200px;
   max-width: 1000px;
   height: auto;

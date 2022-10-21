@@ -22,29 +22,33 @@
 
 .snippet-rw-input {
   color: white;
-  background-color: #4a5568;
+  background-color: #292929;
   width: 100%;
-  height: 30rem;
+  height: 20rem;
   padding: 5px;
   resize: none;
   box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .explanation-rw-input {
   color: white;
-  background-color: #4a5568;
+  background-color: #292929;
   width: 100%;
   height: 10rem;
   padding: 5px;
   box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
   resize: none;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .postContainer {
   transition: all 0.5s ease;
   background-color: whitesmoke;
   height: auto;
-  padding: 1rem;
+  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,6 +58,7 @@
 
 .postFields {
   width: 60rem;
+  padding: 1rem;
 }
 
 .iconCheckBox {

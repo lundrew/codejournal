@@ -52,11 +52,12 @@ const checkboxInputTag = (checked) => {
 const Post = ({ post }) => {
   const [deletePost] = useMutation(DELETE_POST_MUTATION, {
     onCompleted: () => {
-      toast.success('Post deleted')
+      toast.success('Entry deleted')
       navigate(routes.posts())
     },
     onError: (error) => {
       toast.error(error.message)
+
     },
   })
 
@@ -83,11 +84,13 @@ const Post = ({ post }) => {
               <p className="viewPostText">{post.title}</p>
             </div>
             <div className="postBox">
-              <p className="viewPostTextPara">Code snippet</p>
-              <pre className="codeSnippetText">{post.codeSnippet}</pre>
+              <p className="viewPostTextPara">Code Snippet</p>
+              <div className="innerPostBox">
+                <pre className="codeSnippetText">{post.codeSnippet}</pre>
+              </div>
             </div>
             <div className="postBox">
-              <p className="viewPostTextPara">Explanation</p>
+              <p className="viewPostTextPara">Documentation</p>
               <p>{post.explanation}</p>
             </div>
             <div className="viewPostButtons">
