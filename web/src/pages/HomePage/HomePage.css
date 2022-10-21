@@ -47,26 +47,7 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-.logInButton {
-  transition: all 0.5s ease;
-  background-color: whitesmoke;
-  width: 120px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -70px;
-  margin-left: 540px;
-  border-radius: 30px;
-  box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
-}
-
-.logInButton:hover {
-  color: white;
-  background-color: black;
-}
-
-.signUpButton {
+.logButtonHome {
   transition: all 0.5s ease;
   background-color: whitesmoke;
   width: 120px;
@@ -80,25 +61,44 @@ body {
   box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
 }
 
-.signUpButton:hover {
+.logButtonHome:hover {
+  color: white;
+  background-color: black;
+}
+
+.signUpButtonHome {
+  transition: all 0.5s ease;
+  background-color: whitesmoke;
+  width: 120px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -70px;
+  margin-left: 540px;
+  border-radius: 30px;
+  box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
+}
+
+.signUpButtonHome:hover {
   color: white;
   background-color: black;
 }
 
 /* Window Resizing */
 @media (max-width: 1300px) {
-  .logInButton {
+  .logButtonHome {
     margin-left: 400px;
   }
-  .signUpButton {
+  .signUpButtonHome {
     margin-left: 400px;
   }
 }
 @media (max-width: 1050px) {
-  .logInButton {
+  .logButtonHome {
     margin-left: 300px;
   }
-  .signUpButton {
+  .signUpButtonHome {
     margin-left: 300px;
   }
 }
@@ -141,20 +141,20 @@ body {
     width: 50%;
   }
 
-  .logInButton {
+  .logButtonHome {
+    width: 120px;
+    height: 50px;
+    display: flex;
+    margin-top: -230px;
+    margin-left: 150px;
+  }
+
+  .signUpButtonHome {
     width: 120px;
     height: 50px;
     display: flex;
     margin-bottom: 120px;
     margin-left: 150px;
     border-radius: 30px;
-  }
-
-  .signUpButton {
-    width: 120px;
-    height: 50px;
-    display: flex;
-    margin-top: -230px;
-    margin-left: 150px;
   }
 }

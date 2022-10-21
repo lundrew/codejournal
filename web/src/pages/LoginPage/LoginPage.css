@@ -15,7 +15,7 @@ input {
   background: transparent;
   width: 200px;
   padding: 0.5em;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   margin-bottom: 1.5rem;
   margin-left: 2rem;
   border: none;
@@ -31,7 +31,7 @@ input {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.logInButton {
+.logInButtonForm {
   transition: all 0.5s ease;
   background-color: whitesmoke;
   width: 300px;
@@ -53,7 +53,7 @@ input {
   margin-top: 5px;
 }
 
-.logInButton:hover {
+.logInButtonForm:hover {
   color: white;
   background-color: black;
 }

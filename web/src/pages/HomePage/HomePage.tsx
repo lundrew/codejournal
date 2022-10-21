@@ -28,18 +28,18 @@ const HomePage = ({ children }: AdminLayoutProps) => {
           <br />
           retain.
         </p>
-        <button className="logInButton">
+        <button className="signUpButtonHome">
           <Link to={routes.signup()}>Sign Up</Link>
         </button>
         <div>
           {isAuthenticated ? (
             <div>
-              <button className="signUpButton" onClick={logOut}>
+              <button className="logButtonHome" onClick={logOut}>
                 Log Out
               </button>
             </div>
           ) : (
-            <button className="signUpButton">
+            <button className="logButtonHome">
               <Link to={routes.login()}>Login</Link>
             </button>
           )}

@@ -84,7 +84,7 @@ const Post = ({ post }) => {
             </div>
             <div className="postBox">
               <p className="viewPostTextPara">Code snippet</p>
-              <p>{post.codeSnippet}</p>
+              <pre className="codeSnippetText">{post.codeSnippet}</pre>
             </div>
             <div className="postBox">
               <p className="viewPostTextPara">Explanation</p>

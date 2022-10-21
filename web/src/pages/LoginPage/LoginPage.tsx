@@ -94,8 +94,8 @@ const LoginPage = () => {
               <Link to={routes.signup()} className="footer">
                 Sign Up
               </Link>
+              <Submit className="logInButtonForm">Login</Submit>
             </div>
-            <Submit className="logInButton">Login</Submit>
           </Form>
         </div>
       </main>
