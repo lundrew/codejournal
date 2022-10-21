@@ -44,8 +44,8 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({ post }: CellSuccessProps<EditPostById>) => {
   const [updatePost, { loading, error }] = useMutation(UPDATE_POST_MUTATION, {
     onCompleted: () => {
-      toast.success('Post updated')
-      navigate(routes.posts())
+      toast.success('Entry updated')
+      navigate(routes.post({ id: post.id }))
     },
     onError: (error) => {
       toast.error(error.message)

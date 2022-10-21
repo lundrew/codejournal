@@ -13,6 +13,7 @@ import {
 } from '@redwoodjs/forms'
 
 import './PostForm.css'
+import CheckBox from './../../Assets/checkbox.png'
 
 const PostForm = (props) => {
   const onSubmit = (data) => {
@@ -66,6 +67,7 @@ const PostForm = (props) => {
           className="title-rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
+          maxLength={80}
         />
 
         <FieldError name="title" className="rw-field-error" />
@@ -75,7 +77,7 @@ const PostForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Code language
+          Language
         </Label>
 
         <SelectField
@@ -102,7 +104,7 @@ const PostForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Code snippet
+          Code Snippet
         </Label>
 
         <TextAreaField
@@ -111,7 +113,7 @@ const PostForm = (props) => {
           className="snippet-rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
-          spellcheck="false"
+          spellCheck="false"
         />
 
         <FieldError name="codeSnippet" className="rw-field-error" />
@@ -121,7 +123,7 @@ const PostForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Explanation
+          Documentation
         </Label>
 
         <TextAreaField
@@ -144,8 +146,8 @@ const PostForm = (props) => {
         />
 
         <div className="rw-button-group">
-          <Submit disabled={props.loading} className="rw-button rw-button-blue">
-            Save
+          <Submit disabled={props.loading} className="iconCheckBox">
+            <img src={CheckBox} />{' '}
           </Submit>
         </div>
       </Form>

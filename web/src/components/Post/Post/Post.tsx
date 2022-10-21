@@ -4,6 +4,9 @@ import { Link, routes, navigate } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 import { useAuth } from '@redwoodjs/auth'
+import './../Post/Post.css'
+import Trash from './../../Assets/trash-can.png'
+import Edit from './../../Assets/edit.png'
 
 const DELETE_POST_MUTATION = gql`
   mutation DeletePostMutation($id: Int!) {
@@ -49,11 +52,12 @@ const checkboxInputTag = (checked) => {
 const Post = ({ post }) => {
   const [deletePost] = useMutation(DELETE_POST_MUTATION, {
     onCompleted: () => {
-      toast.success('Post deleted')
+      toast.success('Entry deleted')
       navigate(routes.posts())
     },
     onError: (error) => {
       toast.error(error.message)
+
     },
   })
 
@@ -68,61 +72,46 @@ const Post = ({ post }) => {
   return (
     <>
       {currentUser.id === post.authorId ? (
-        <div>
+        <div className="myContainer">
           <div className="rw-segment">
-            <header className="rw-segment-header">
-              <h2 className="rw-heading rw-heading-secondary">
-                Post {post.id} Detail
-              </h2>
-            </header>
-            <table className="rw-table">
-              <tbody>
-                <tr>
-                  <th>Id</th>
-                  <td>{post.id}</td>
-                </tr>{' '}
-                <tr>
-                  <th>Author Id</th>
-                  <td>{post.authorId}</td>
-                </tr>
-                <tr>
-                  <th>Title</th>
-                  <td>{post.title}</td>
-                </tr>
-                <tr>
-                  <th>Explanation</th>
-                  <td>{post.explanation}</td>
-                </tr>
-                <tr>
-                  <th>Code language</th>
-                  <td>{post.codeLanguage}</td>
-                </tr>
-                <tr>
-                  <th>Code snippet</th>
-                  <td>{post.codeSnippet}</td>
-                </tr>
-                <tr>
-                  <th>Created at</th>
-                  <td>{timeTag(post.createdAt)}</td>
-                </tr>
-              </tbody>
-            </table>
+            <h2 className="rw-heading rw-heading-secondary">
+              <p className="dateViewPost">{timeTag(post.createdAt)}</p>
+            </h2>
+            <div className="languageViewPost">
+              <p className="languageViewPostText">{post.codeLanguage}</p>
+            </div>
+            <div className="titleViewPost">
+              <p className="viewPostText">{post.title}</p>
+            </div>
+            <div className="postBox">
+              <p className="viewPostTextPara">Code Snippet</p>
+              <div className="innerPostBox">
+                <pre className="codeSnippetText">{post.codeSnippet}</pre>
+              </div>
+            </div>
+            <div className="postBox">
+              <p className="viewPostTextPara">Documentation</p>
+              <p>{post.explanation}</p>
+            </div>
+            <div className="viewPostButtons">
+              <Link
+                to={routes.editPost({ id: post.id })}
+                title={'Edit Post'}
+                className="iconPost"
+              >
+                <img src={Edit} />{' '}
+              </Link>
+              <button
+                type="button"
+                title={'Delete Post'}
+                onClick={() => onDeleteClick(post.id)}
+                className="iconPost"
+              >
+                {' '}
+                <img src={Trash} />{' '}
+              </button>
+            </div>
           </div>
-          <nav className="rw-button-group">
-            <Link
-              to={routes.editPost({ id: post.id })}
-              className="rw-button rw-button-blue"
-            >
-              Edit
-            </Link>
-            <button
-              type="button"
-              className="rw-button rw-button-red"
-              onClick={() => onDeleteClick(post.id)}
-            >
-              Delete
-            </button>
-          </nav>
         </div>
       ) : (
         <>{navigate(routes.userDashboard())}</>

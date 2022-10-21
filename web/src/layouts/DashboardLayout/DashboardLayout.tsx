@@ -16,12 +16,15 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   return (
     <div>
       <header>
-        <h1 className="title"> Code Journal</h1>
+        <h1 className="title">Dev Journal</h1>
         <nav>
           <li className="nav-li">
             {isAuthenticated ? (
-              <div>
-                <span>Welcome, {currentUser.name || currentUser.email}</span>{' '}
+              <div className="dashLayoutNav">
+                <span className="currentUsername">
+                  Welcome, {currentUser.name || currentUser.email}
+                </span>{' '}
+                <div className="divider"></div>
                 <button className="logoutButton" onClick={logOut}>
                   Logout
                 </button>
