@@ -18,8 +18,8 @@ const NewPost = () => {
 
   const [createPost, { loading, error }] = useMutation(CREATE_POST_MUTATION, {
     onCompleted: () => {
-      toast.success('Post created')
       navigate(routes.posts())
+      toast.success('Entry logged')
     },
     onError: (error) => {
       toast.error(error.message)
@@ -32,11 +32,9 @@ const NewPost = () => {
 
   return (
     (hasRole('admin') || hasRole('moderator') || hasRole('user')) && (
-      <div className="rw-segment">
-        <header className="rw-segment-header">
-          <h2 className="rw-heading rw-heading-secondary">New Post</h2>
-        </header>
-        <div className="rw-segment-main">
+      <div className="postContainer">
+        <div className="postFields">
+          <h1 className="cardTitle">Create Entry</h1>
           <PostForm onSave={onSave} loading={loading} error={error} />
         </div>
       </div>

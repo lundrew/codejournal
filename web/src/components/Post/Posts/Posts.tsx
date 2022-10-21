@@ -4,6 +4,11 @@ import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 import { QUERY } from 'src/components/Post/PostsCell'
+import './Posts.css'
+import Trash from './../../Assets/trash-can.png'
+import Edit from './../../Assets/edit.png'
+import View from './../../Assets/journal.png'
+import { useAuth } from '@redwoodjs/auth'
 
 const DELETE_POST_MUTATION = gql`
   mutation DeletePostMutation($id: Int!) {
@@ -28,14 +33,22 @@ const formatEnum = (values: string | string[] | null | undefined) => {
 
 const truncate = (text) => {
   let output = text
-  if (text && text.length > MAX_STRING_LENGTH) {
-    output = output.substring(0, MAX_STRING_LENGTH) + '...'
+  if (text && text.length > 30) {
+    output = output.substring(0, 30) + '...'
   }
   return output
 }
 
 const jsonTruncate = (obj) => {
   return truncate(JSON.stringify(obj, null, 2))
+}
+
+const timeTruncate = (text) => {
+  let output = text
+  if (text && text.length > 3) {
+    output = output.substring(0, 3) + '...'
+  }
+  return output
 }
 
 const timeTag = (datetime) => {
@@ -55,7 +68,7 @@ const checkboxInputTag = (checked) => {
 const PostsList = ({ posts }) => {
   const [deletePost] = useMutation(DELETE_POST_MUTATION, {
     onCompleted: () => {
-      toast.success('Post deleted')
+      toast.success('Entry deleted')
     },
     onError: (error) => {
       toast.error(error.message)
@@ -73,54 +86,66 @@ const PostsList = ({ posts }) => {
     }
   }
 
+  const { currentUser } = useAuth()
+
+  const currentUserPosts = []
+  posts &&
+    posts.map((item) => {
+      if (item.authorId === currentUser.id) {
+        currentUserPosts.push(item)
+      }
+    })
+
+  const reversePosts = (arr) => {
+    let newArr = []
+    newArr.push(...arr)
+    return newArr.reverse()
+  }
+
+  const currentUserPostsReversed = reversePosts(currentUserPosts)
+
   return (
-    <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
-        <thead>
-          <tr>
-            <th>Author Id</th>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Explanation</th>
-            <th>Code language</th>
-            <th>Code snippet</th>
-            <th>Created at</th>
-            <th>&nbsp;</th>
-          </tr>
-        </thead>
+    <div className="postsContainer">
+      <table>
+        <thead className="cardTitle">Entry List</thead>
         <tbody>
-          {posts.map((post) => (
+          {/* <th>No</th> */}
+          <th>Date</th>
+          <th>Title</th>
+          <th>Lang</th>
+          <th>&nbsp;</th>
+        </tbody>
+        <tbody>
+          {currentUserPostsReversed.map((post) => (
             <tr key={post.id}>
-              <td>{truncate(post.authorId)}</td>
-              <td>{truncate(post.id)}</td>
-              <td>{truncate(post.title)}</td>
-              <td>{truncate(post.explanation)}</td>
-              <td>{truncate(post.codeLanguage)}</td>
-              <td>{truncate(post.codeSnippet)}</td>
+              {/* <td>{truncate(post.id)}</td> */}
               <td>{timeTag(post.createdAt)}</td>
+              <td>{truncate(post.title)}</td>
+              <td>{truncate(post.codeLanguage)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link
                     to={routes.post({ id: post.id })}
-                    title={'Show post ' + post.id + ' detail'}
-                    className="rw-button rw-button-small"
+                    title={'Show post '}
+                    className="iconPosts"
                   >
-                    Show
+                    <img src={View} />{' '}
                   </Link>
                   <Link
                     to={routes.editPost({ id: post.id })}
-                    title={'Edit post ' + post.id}
-                    className="rw-button rw-button-small rw-button-blue"
+                    title={'Edit Post'}
+                    className="iconPosts"
                   >
-                    Edit
+                    <img src={Edit} />{' '}
                   </Link>
                   <button
                     type="button"
-                    title={'Delete post ' + post.id}
-                    className="rw-button rw-button-small rw-button-red"
+                    title={'Delete Post'}
                     onClick={() => onDeleteClick(post.id)}
+                    className="iconPosts"
                   >
-                    Delete
+                    {' '}
+                    <img src={Trash} />{' '}
                   </button>
                 </nav>
               </td>

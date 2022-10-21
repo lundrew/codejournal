@@ -15,9 +15,9 @@ const DashboardPanel = () => {
         <Link to={routes.addPost()}>
           <img src={AddIcon} className="panelIcon" />{' '}
         </Link>
-        <Link to={routes.postsList()}>
+        {/* <Link to={routes.postsList()}>
           <img src={ListIcon} className="panelIcon" />{' '}
-        </Link>
+        </Link> */}
       </div>
     </div>
   )

@@ -12,7 +12,10 @@ const HomePage = ({ children }: AdminLayoutProps) => {
   return (
     <>
       <MetaTags title="Home" description="Home page" />
-      <h1 className="title">Code Journal</h1>
+      <Link to={routes.userDashboard()} className="title">
+        {' '}
+        Dev Journal{' '}
+      </Link>
       <div className="container">
         <p className="description">&#60;your personal journal</p>
         <p className="descriptionTwo">of code snippets/&#62;</p>
@@ -25,18 +28,18 @@ const HomePage = ({ children }: AdminLayoutProps) => {
           <br />
           retain.
         </p>
-        <button className="logInButton">
+        <button className="signUpButtonHome">
           <Link to={routes.signup()}>Sign Up</Link>
         </button>
         <div>
           {isAuthenticated ? (
             <div>
-              <button className="signUpButton" onClick={logOut}>
+              <button className="logButtonHome" onClick={logOut}>
                 Log Out
               </button>
             </div>
           ) : (
-            <button className="signUpButton">
+            <button className="logButtonHome">
               <Link to={routes.login()}>Login</Link>
             </button>
           )}

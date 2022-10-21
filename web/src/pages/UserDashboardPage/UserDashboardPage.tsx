@@ -1,10 +1,13 @@
 import { MetaTags } from '@redwoodjs/web'
+import PostsCell from 'src/components/Post/PostsCell'
 
 const UserDashboardPage = () => {
   return (
     <>
       <MetaTags title="UserDashboard" description="UserDashboard page" />
-      <div>my dashboard page</div>
+      <div className='dashboardPage'>
+      <PostsCell />
+      </div>
     </>
   )
 }

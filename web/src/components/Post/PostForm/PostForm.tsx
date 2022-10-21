@@ -5,8 +5,15 @@ import {
   FieldError,
   Label,
   TextField,
+  TextAreaField,
+  SelectField,
   Submit,
+  HiddenField,
+  NumberField,
 } from '@redwoodjs/forms'
+
+import './PostForm.css'
+import CheckBox from './../../Assets/checkbox.png'
 
 const PostForm = (props) => {
   const onSubmit = (data) => {
@@ -14,6 +21,27 @@ const PostForm = (props) => {
   }
 
   const { currentUser } = useAuth()
+
+  const languages = [
+    'HTML',
+    'CSS',
+    'Javascript',
+    'TypeScript',
+    'Ruby',
+    'Java',
+    'Python',
+    'C++',
+    'C#',
+    'R',
+    'Golang',
+    'Swift',
+    'Rust',
+    'Scheme',
+    'Kotlin',
+    'Perl',
+    'PHP',
+    'Scala',
+  ]
 
   return (
     <div className="rw-form-wrapper">
@@ -27,7 +55,7 @@ const PostForm = (props) => {
 
         <Label
           name="title"
-          className="rw-label"
+          className="title-rw-label"
           errorClassName="rw-label rw-label-error"
         >
           Title
@@ -36,89 +64,90 @@ const PostForm = (props) => {
         <TextField
           name="title"
           defaultValue={props.post?.title}
-          className="rw-input"
+          className="title-rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
+          maxLength={80}
         />
 
         <FieldError name="title" className="rw-field-error" />
 
         <Label
-          name="explanation"
+          name="codeLanguage"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Explanation
+          Language
         </Label>
 
-        <TextField
+        <SelectField
+          name="codeLanguage"
+          className="language-rw-input"
+          defaultValue={props.post?.codeLanguage}
+          validation={{
+            required: true,
+          }}
+        >
+          {languages &&
+            languages.map((value) => (
+              <option value={value} key={value}>
+                {value}
+              </option>
+            ))}
+        </SelectField>
+        <FieldError name="selectSingle" style={{ color: 'red' }} />
+
+        <FieldError name="codeLanguage" className="rw-field-error" />
+
+        <Label
+          name="Insert Code Here"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Code Snippet
+        </Label>
+
+        <TextAreaField
+          name="codeSnippet"
+          defaultValue={props.post?.codeSnippet}
+          className="snippet-rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+          spellCheck="false"
+        />
+
+        <FieldError name="codeSnippet" className="rw-field-error" />
+
+        <Label
+          name="Insert Code Explained Here"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Documentation
+        </Label>
+
+        <TextAreaField
           name="explanation"
           defaultValue={props.post?.explanation}
-          className="rw-input"
+          className="explanation-rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
 
         <FieldError name="explanation" className="rw-field-error" />
 
-        <Label
-          name="codeLanguage"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Code language
-        </Label>
-
-        <TextField
-          name="codeLanguage"
-          defaultValue={props.post?.codeLanguage}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-
-        <FieldError name="codeLanguage" className="rw-field-error" />
-
-        <Label
-          name="codeSnippet"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Code snippet
-        </Label>
-
-        <TextField
-          name="codeSnippet"
-          defaultValue={props.post?.codeSnippet}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-
-        <FieldError name="codeSnippet" className="rw-field-error" />
-
-        <Label
-          name="authorId"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Author ID
-        </Label>
-
-        <TextField
-          name="authorId"
-          defaultValue={currentUser.id}
-          typeof="int"
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: false, valueAsNumber: true }}
-        />
-
         <FieldError name="title" className="rw-field-error" />
 
+        <NumberField
+          name="authorId"
+          defaultValue={currentUser.id}
+          validation={{ required: true }}
+          hidden
+        />
+
         <div className="rw-button-group">
-          <Submit disabled={props.loading} className="rw-button rw-button-blue">
-            Save
+          <Submit disabled={props.loading} className="iconCheckBox">
+            <img src={CheckBox} />{' '}
           </Submit>
         </div>
       </Form>

@@ -8,20 +8,20 @@ type DashboardLayoutProps = {
 const TotalPostsCard = ({ posts }) => {
   const { currentUser } = useAuth()
 
-  const newArray = []
+  const currentUserPosts = []
   posts &&
     posts.map((item) => {
       if (item.authorId === currentUser.id) {
-        newArray.push(item)
+        currentUserPosts.push(item)
       }
     })
 
-  const currentUserPostCount = newArray.length
+  const currentUserPostCount = currentUserPosts.length
 
   return (
     <div className="totalPostsCard">
       <h1>{currentUserPostCount}</h1>
-      <h2>Total Posts</h2>
+      <h2>Entries</h2>
     </div>
   )
 }
