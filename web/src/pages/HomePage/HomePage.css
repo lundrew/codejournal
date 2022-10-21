@@ -61,6 +61,11 @@ body {
   box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
 }
 
+.logInButton:hover {
+  color: white;
+  background-color: black;
+}
+
 .signUpButton {
   transition: all 0.5s ease;
   background-color: whitesmoke;
@@ -75,7 +80,7 @@ body {
   box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
 }
 
-button:hover {
+.signUpButton:hover {
   color: white;
   background-color: black;
 }
