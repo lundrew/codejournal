@@ -1,12 +1,11 @@
 import { Private, Router, Route, Set } from '@redwoodjs/router'
-import { useAuth } from '@redwoodjs/auth'
 
 import AdminLayout from 'src/layouts/AdminLayout'
 import DashboardLayout from 'src/layouts/DashboardLayout'
+
+import AddPostPage from './pages/AddPostPage/AddPostPage'
 import HomePage from './pages/HomePage/HomePage'
 import UserDashboardPage from './pages/UserDashboardPage/UserDashboardPage'
-import PostsListPage from './pages/PostsListPage/PostsListPage'
-import AddPostPage from './pages/AddPostPage/AddPostPage'
 
 const Routes = () => {
   return (
@@ -24,6 +23,7 @@ const Routes = () => {
       <Route path="/about" page={AboutPage} name="about" />
       <Set private unauthenticated="home" wrap={DashboardLayout}>
         <Route path="/userdashboard" page={UserDashboardPage} name="userDashboard" />
+        <Route path="/user" page={UserPage} name="user" />
         <Route path="/addpost" page={AddPostPage} name="addPost" />
         <Route path="/posts/new" page={PostNewPostPage} name="newPost" />
         <Route path="/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
@@ -37,3 +37,4 @@ const Routes = () => {
 }
 
 export default Routes
+

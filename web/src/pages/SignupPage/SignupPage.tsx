@@ -64,7 +64,7 @@ const SignupPage = () => {
                   validation={{
                     required: {
                       value: true,
-                      message: 'Username is required',
+                      message: 'Email is required',
                     },
                   }}
                 />
@@ -73,7 +73,6 @@ const SignupPage = () => {
               <div>
                 <Label
                   name="password"
-                  // className="rw-label"
                   errorClassName="rw-label rw-label-error"
                 >
                   Password

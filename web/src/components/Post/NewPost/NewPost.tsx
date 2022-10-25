@@ -4,6 +4,7 @@ import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import PostForm from 'src/components/Post/PostForm'
+import './../../User/User.css'
 
 const CREATE_POST_MUTATION = gql`
   mutation CreatePostMutation($input: CreatePostInput!) {
@@ -35,7 +36,9 @@ const NewPost = () => {
       <div className="postContainer">
         <div className="postFields">
           <h1 className="cardTitle">Create Entry</h1>
-          <PostForm onSave={onSave} loading={loading} error={error} />
+          <div className="theForm">
+            <PostForm onSave={onSave} loading={loading} error={error} />
+          </div>
         </div>
       </div>
     )

@@ -8,7 +8,6 @@ import {
   TextAreaField,
   SelectField,
   Submit,
-  HiddenField,
   NumberField,
 } from '@redwoodjs/forms'
 
@@ -55,7 +54,7 @@ const PostForm = (props) => {
 
         <Label
           name="title"
-          className="title-rw-label"
+          className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
           Title
@@ -65,6 +64,7 @@ const PostForm = (props) => {
           name="title"
           defaultValue={props.post?.title}
           className="title-rw-input"
+          placeholder="Create a title..."
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
           maxLength={80}
@@ -82,12 +82,13 @@ const PostForm = (props) => {
 
         <SelectField
           name="codeLanguage"
-          className="language-rw-input"
+          className="language-input"
           defaultValue={props.post?.codeLanguage}
           validation={{
             required: true,
           }}
         >
+          <option value="">Select a Language</option>
           {languages &&
             languages.map((value) => (
               <option value={value} key={value}>
@@ -100,7 +101,7 @@ const PostForm = (props) => {
         <FieldError name="codeLanguage" className="rw-field-error" />
 
         <Label
-          name="Insert Code Here"
+          name="codeSnippet"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
@@ -110,7 +111,8 @@ const PostForm = (props) => {
         <TextAreaField
           name="codeSnippet"
           defaultValue={props.post?.codeSnippet}
-          className="snippet-rw-input"
+          className="snippet-input"
+          placeholder="Insert your code snippet here..."
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
           spellCheck="false"
@@ -119,7 +121,7 @@ const PostForm = (props) => {
         <FieldError name="codeSnippet" className="rw-field-error" />
 
         <Label
-          name="Insert Code Explained Here"
+          name="explanation"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
@@ -129,14 +131,13 @@ const PostForm = (props) => {
         <TextAreaField
           name="explanation"
           defaultValue={props.post?.explanation}
-          className="explanation-rw-input"
+          className="explanation-input"
+          placeholder="Insert your documentation here..."
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
 
         <FieldError name="explanation" className="rw-field-error" />
-
-        <FieldError name="title" className="rw-field-error" />
 
         <NumberField
           name="authorId"
