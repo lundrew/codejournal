@@ -5,7 +5,7 @@
   min-width: 200px;
   max-width: 1000px;
   height: auto;
-  padding: 3rem;
+  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,6 +17,9 @@
   color: #292929;
   font-weight: bold;
   font-size: 1rem;
+  white-space: nowrap;
+  position: absolute;
+  margin-right: 16rem;
 }
 
 th {

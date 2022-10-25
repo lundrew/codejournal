@@ -60,7 +60,7 @@ const LoginPage = () => {
                 validation={{
                   required: {
                     value: true,
-                    message: 'Username is required',
+                    message: 'Email is required',
                   },
                 }}
               />

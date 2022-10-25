@@ -6,39 +6,70 @@ import {
   TextField,
   Submit,
 } from '@redwoodjs/forms'
+import { useRef, useEffect } from 'react'
+import './../User/User.css'
 
 const User = ({ error, loading, user, onSave }) => {
+  const ref = useRef(true)
+
+  useEffect(() => {
+    const firstRender = ref.current
+
+    firstRender
+      ? (ref.current = false)
+      : setTimeout(() => {
+          window.location.reload()
+        }, 10)
+  })
+
   return (
-    <div className="rw-form-wrapper">
-      <Form onSubmit={onSave} error={error}>
-        <FormError error={error} />
+    <div className="profileForm">
+      <div className="cardTitle">Edit Profile</div>
 
-        <Label name="name" className="rw-label">
-          Name
-        </Label>
+      <div className="theForm">
+        <Form onSubmit={onSave} error={error}>
+          <FormError error={error} />
 
-        <TextField name="name" defaultValue={user.name} className="rw-input" />
+          <Label name="name" className="rw-label">
+            Name
+          </Label>
 
-        <FieldError name="name" />
+          <TextField
+            name="name"
+            defaultValue={user.name}
+            className="rw-input"
+          />
 
-        <Label name="email" className="rw-label">
-          Email
-        </Label>
+          <FieldError name="name" />
 
-        <TextField
-          name="email"
-          defaultValue={user.email}
-          className="rw-input"
-        />
+          <Label
+            name="email"
+            className="rw-label"
+            errorClassName="rw-label rw-label-error"
+          >
+            Email
+          </Label>
 
-        <FieldError name="email" />
+          <TextField
+            name="email"
+            defaultValue={user.email}
+            className="rw-input"
+            errorClassName="rw-input rw-input-error"
+            validation={{
+              required: {
+                value: true,
+                message: 'Email is required',
+              },
+            }}
+          />
 
-        <div>
-          <Submit className="" disabled={loading}>
-            Save
-          </Submit>
-        </div>
-      </Form>
+          <FieldError name="email" className="rw-field-error" />
+
+          <div>
+            <Submit className="signUpButton">Save</Submit>
+          </div>
+        </Form>
+      </div>
     </div>
   )
 }

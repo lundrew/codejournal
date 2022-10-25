@@ -8,6 +8,7 @@ import {
 import { toast } from '@redwoodjs/web/dist/toast'
 
 import { User } from '../User/User'
+import './UserCell.css'
 
 export const QUERY = gql`
   query User {
@@ -55,9 +56,6 @@ export const Success = ({ user }: CellSuccessProps) => {
     <>
       <MetaTags title={`${user.email || user.name} | Edit Profile`} />
       <div>
-        <header>
-          <h2>Edit Profile</h2>
-        </header>
         <div>
           <User error={error} loading={loading} onSave={onSave} user={user} />
         </div>

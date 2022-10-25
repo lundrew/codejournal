@@ -1,26 +1,20 @@
 .title-rw-input {
+  background-color: white;
+  font-weight: 300;
   width: 30rem;
   border-radius: 2rem;
   padding: 5px;
   box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
 }
 
-.title-rw-label {
-  display: block;
-  margin-top: 0rem;
-  margin-right: 1rem;
-  color: #4a5568;
-  font-weight: 600;
-}
-
-.language-rw-input {
+.language-input {
   width: 10rem;
   border-radius: 2rem;
   padding: 5px;
   box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
 }
 
-.snippet-rw-input {
+.snippet-input {
   color: white;
   background-color: #292929;
   width: 100%;
@@ -32,7 +26,7 @@
   overflow-x: hidden;
 }
 
-.explanation-rw-input {
+.explanation-input {
   color: white;
   background-color: #292929;
   width: 100%;
@@ -58,7 +52,6 @@
 
 .postFields {
   width: 60rem;
-  padding: 1rem;
 }
 
 .iconCheckBox {

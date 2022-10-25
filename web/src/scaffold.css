@@ -229,16 +229,17 @@
 }
 .rw-input {
   display: block;
-  margin-top: 0.5rem;
-  width: 100%;
-  padding: 0.5rem;
+  margin-top: 0rem;
+  width: 200px;
+  height: 40px;
+  padding: 13px;
   border-width: 1px;
   border-style: solid;
   border-color: #e2e8f0;
   color: #4a5568;
-  border-radius: 0.25rem;
   outline: none;
 }
+
 .rw-check-radio-item-none {
   color: #4a5568;
 }
@@ -266,6 +267,9 @@
 .rw-input-error {
   border-color: #c53030;
   color: #c53030;
+  width: 250px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .rw-input-error:focus {
@@ -379,3 +383,15 @@
   text-align: center;
   flex-basis: 100%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
