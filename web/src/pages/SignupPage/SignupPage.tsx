@@ -62,9 +62,10 @@ const SignupPage = () => {
                   errorClassName="rw-input rw-input-error"
                   ref={usernameRef}
                   validation={{
-                    required: {
-                      value: true,
-                      message: 'Email is required',
+                    required: 'Email is required',
+                    pattern: {
+                      value: /[^@]+@[^.]+\..{2,}/,
+                      message: 'Please enter a valid email address',
                     },
                   }}
                 />

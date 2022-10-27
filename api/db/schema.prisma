@@ -41,7 +41,7 @@ model User {
   posts Post[]
   resetToken          String?
   resetTokenExpiresAt DateTime?
-  roles               String @default("moderator")
+  roles               String @default("user")
 }
 
 model Comment {

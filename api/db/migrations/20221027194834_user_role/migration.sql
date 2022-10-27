@@ -8,7 +8,7 @@ CREATE TABLE "new_User" (
     "salt" TEXT NOT NULL,
     "resetToken" TEXT,
     "resetTokenExpiresAt" DATETIME,
-    "roles" TEXT NOT NULL DEFAULT 'moderator'
+    "roles" TEXT NOT NULL DEFAULT 'user'
 );
 INSERT INTO "new_User" ("email", "hashedPassword", "id", "name", "resetToken", "resetTokenExpiresAt", "salt") SELECT "email", "hashedPassword", "id", "name", "resetToken", "resetTokenExpiresAt", "salt" FROM "User";
 DROP TABLE "User";
