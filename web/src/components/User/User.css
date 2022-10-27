@@ -18,14 +18,12 @@ input {
   border: none;
   border-left: 1px solid white;
   border-top: 1px solid white;
-  border-radius: 5000px;
+  border-radius: 10px;
   backdrop-filter: blur(5px);
-  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
   color: rgb(0, 0, 0);
   font-family: Montserrat, sans-serif;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .signUpButton {

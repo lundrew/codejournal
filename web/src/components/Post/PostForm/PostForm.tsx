@@ -53,26 +53,6 @@ const PostForm = (props) => {
         />
 
         <Label
-          name="title"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Title
-        </Label>
-
-        <TextField
-          name="title"
-          defaultValue={props.post?.title}
-          className="title-rw-input"
-          placeholder="Create a title..."
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-          maxLength={80}
-        />
-
-        <FieldError name="title" className="rw-field-error" />
-
-        <Label
           name="codeLanguage"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
@@ -101,6 +81,25 @@ const PostForm = (props) => {
         <FieldError name="codeLanguage" className="rw-field-error" />
 
         <Label
+          name="title"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Title
+        </Label>
+
+        <TextField
+          name="title"
+          defaultValue={props.post?.title}
+          className="title-rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+          maxLength={80}
+        />
+
+        <FieldError name="title" className="rw-field-error" />
+
+        <Label
           name="codeSnippet"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
@@ -112,7 +111,7 @@ const PostForm = (props) => {
           name="codeSnippet"
           defaultValue={props.post?.codeSnippet}
           className="snippet-input"
-          placeholder="Insert your code snippet here..."
+          placeholder="Insert code snippet here..."
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
           spellCheck="false"
@@ -132,9 +131,10 @@ const PostForm = (props) => {
           name="explanation"
           defaultValue={props.post?.explanation}
           className="explanation-input"
-          placeholder="Insert your documentation here..."
+          placeholder="Explain code here..."
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
+          maxLength={5000}
         />
 
         <FieldError name="explanation" className="rw-field-error" />

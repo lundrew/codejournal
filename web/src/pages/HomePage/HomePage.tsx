@@ -2,6 +2,7 @@ import { MetaTags } from '@redwoodjs/web'
 import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 import './HomePage.css'
+import { HiddenField } from '@redwoodjs/forms'
 
 type AdminLayoutProps = {
   children?: React.ReactNode

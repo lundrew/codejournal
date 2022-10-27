@@ -1,22 +1,33 @@
 .title-rw-input {
-  background-color: white;
-  font-weight: 300;
-  width: 30rem;
-  border-radius: 2rem;
-  padding: 5px;
-  box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
+  background: transparent;
+  width: 200px;
+  padding: 0.3em;
+  border: 1px solid rgb(41, 41, 41, 30%);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  color: rgb(0, 0, 0);
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
 }
 
 .language-input {
-  width: 10rem;
-  border-radius: 2rem;
-  padding: 5px;
-  box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
+  background: transparent;
+  width: 200px;
+  padding: 0.4em;
+  border: 1px solid rgb(41, 41, 41, 30%);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  color: rgb(0, 0, 0);
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
 }
 
 .snippet-input {
-  color: white;
+  color: rgb(173, 173, 173);
   background-color: #292929;
+  font-family: Montserrat, sans-serif;
   width: 100%;
   height: 20rem;
   padding: 5px;
@@ -27,8 +38,9 @@
 }
 
 .explanation-input {
-  color: white;
+  color: rgb(173, 173, 173);
   background-color: #292929;
+  font-family: Montserrat, sans-serif;
   width: 100%;
   height: 10rem;
   padding: 5px;

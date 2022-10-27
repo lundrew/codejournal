@@ -2,6 +2,7 @@ import { useAuth } from '@redwoodjs/auth'
 import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
+import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 import PostForm from 'src/components/Post/PostForm'
 import './../../User/User.css'

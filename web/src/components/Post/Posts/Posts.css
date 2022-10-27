@@ -38,7 +38,7 @@ td {
   padding-bottom: 1rem;
   font-size: 10px;
   color: #292929;
-  border-bottom: 1px solid rgba(41, 41, 41, 0.2);
+  border-bottom: 1px solid rgba(41, 41, 41, 10%);
 }
 
 .iconPosts {

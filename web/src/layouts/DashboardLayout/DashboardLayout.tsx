@@ -4,6 +4,7 @@ import { Link, NavLink, routes } from '@redwoodjs/router'
 import './DashboardLayout.css'
 import DashboardPanel from 'src/components/DashboardPanel/DashboardPanel'
 import TotalPostsCountCell from 'src/components/TotalPostsCountCell'
+import JournalIcon from './../../../src/components/Assets/journal-icon.png'
 
 type DashboardLayoutProps = {
   children: React.ReactNode
@@ -15,7 +16,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   return (
     <div>
       <header>
-        <h1 className="title">Dev Journal</h1>
+        <h1 className="title"> Dev Journal</h1>
         <nav>
           <li className="nav-li">
             {isAuthenticated ? (

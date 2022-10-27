@@ -57,7 +57,6 @@ const Post = ({ post }) => {
     },
     onError: (error) => {
       toast.error(error.message)
-
     },
   })
 
@@ -91,7 +90,7 @@ const Post = ({ post }) => {
             </div>
             <div className="postBox">
               <p className="viewPostTextPara">Documentation</p>
-              <p>{post.explanation}</p>
+              <p className="documentationText">{post.explanation}</p>
             </div>
             <div className="viewPostButtons">
               <Link
