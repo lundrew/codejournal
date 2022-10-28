@@ -147,8 +147,8 @@ const PostForm = (props) => {
         />
 
         <div className="rw-button-group">
-          <Submit disabled={props.loading} className="iconCheckBox">
-            <img src={CheckBox} />{' '}
+          <Submit disabled={props.loading} id="logButton">
+            Log
           </Submit>
         </div>
       </Form>

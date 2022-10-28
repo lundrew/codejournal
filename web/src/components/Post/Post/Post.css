@@ -94,13 +94,11 @@
   width: 800px;
   min-width: 400px;
   max-width: 1000px;
-  margin-top: 1rem;
   margin-right: 2rem;
   margin-left: 2rem;
   margin-bottom: 2rem;
   align-items: center;
   justify-content: center;
-  border-radius: 30px;
   height: 300px;
   overflow: scroll;
   overflow-x: hidden;
@@ -109,8 +107,8 @@
 .codeSnippetText {
   font-family: 'Courier New', Courier, monospace;
   color: #292929;
-  padding: 20px;
   width: 800px;
+  /* padding-left: 10px; */
 }
 
 .viewPostTextPara {
@@ -162,4 +160,61 @@
   height: 120px;
   overflow: scroll;
   overflow-x: hidden;
+}
+
+.snippetButtons {
+  display: flex;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+/* Modal */
+
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.btn-modal {
+  font-size: 15px;
+  position: relative;
+  left: 47rem;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 4;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+  z-index: 0;
+}
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 1000px;
+  min-width: 300px;
+  max-height: 700px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
 }

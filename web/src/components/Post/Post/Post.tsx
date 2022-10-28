@@ -3,10 +3,16 @@ import humanize from 'humanize-string'
 import { Link, routes, navigate } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { useAuth } from '@redwoodjs/auth'
 import './../Post/Post.css'
 import Trash from './../../Assets/trash-can.png'
 import Edit from './../../Assets/edit.png'
+
+import { Clippy } from 'src/components/Assets/Clippy'
+import { Check } from 'src/components/Assets/Check'
+import Expand from 'src/components/Assets/expand-arrows.png'
+import { useState } from 'react'
 
 const DELETE_POST_MUTATION = gql`
   mutation DeletePostMutation($id: Int!) {
@@ -68,6 +74,25 @@ const Post = ({ post }) => {
 
   const { currentUser } = useAuth()
 
+  // Copy Clipboard
+  const [copied, setCopied] = React.useState(false)
+
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (copied) setCopied(false)
+    }, 1000)
+
+    return () => clearTimeout(timeout)
+  }, [copied])
+
+  // Toggle Expand Code Snippet
+
+  const [modal, setModal] = useState(false)
+
+  const toggleModal = () => {
+    setModal(!modal)
+  }
+
   return (
     <>
       {currentUser.id === post.authorId ? (
@@ -84,6 +109,76 @@ const Post = ({ post }) => {
             </div>
             <div className="postBox">
               <p className="viewPostTextPara">Code Snippet</p>
+              <div className="snippetButtons">
+                {/* Clipboard Copy Code Snippet */}
+                <div
+                  style={{
+                    position: 'relative',
+                    left: '47rem',
+                  }}
+                >
+                  <CopyToClipboard text={post.codeSnippet}>
+                    <button
+                      onClick={() => setCopied(true)}
+                      style={{
+                        appearance: 'none',
+                        padding: 8,
+                        border: 0,
+                        outline: 0,
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <div
+                        style={{
+                          position: 'relative',
+                          height: 16,
+                          width: 16,
+                        }}
+                      >
+                        <Clippy
+                          style={{
+                            color: '#292929',
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            strokeDasharray: 50,
+                            strokeDashoffset: copied ? -50 : 0,
+                            transition: 'all 300ms ease-in-out',
+                          }}
+                        />
+                        <Check
+                          isVisible={copied}
+                          style={{
+                            color: 'green',
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            strokeDasharray: 50,
+                            strokeDashoffset: copied ? 0 : -50,
+                            transition: 'all 300ms ease-in-out',
+                          }}
+                        />
+                      </div>
+                    </button>
+                  </CopyToClipboard>
+                </div>
+                {/* Modal */}
+                <button onClick={toggleModal} className="btn-modal">
+                  <img src={Expand} style={{ width: 14 }} />
+                </button>
+                {modal && (
+                  <div className="modal">
+                    <div className="overlay"></div>
+                    <div className="modal-content">
+                      <pre className="codeSnippetText">{post.codeSnippet}</pre>
+                      <button className="close-modal" onClick={toggleModal}>
+                        <img src={Expand} style={{ width: 26 }} />
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+              {/* Code Snippet  */}
               <div className="innerPostBox">
                 <pre className="codeSnippetText">{post.codeSnippet}</pre>
               </div>
@@ -92,6 +187,7 @@ const Post = ({ post }) => {
               <p className="viewPostTextPara">Documentation</p>
               <p className="documentationText">{post.explanation}</p>
             </div>
+            {/* Edit and Delete Buttons */}
             <div className="viewPostButtons">
               <Link
                 to={routes.editPost({ id: post.id })}

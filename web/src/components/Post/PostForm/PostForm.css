@@ -76,3 +76,24 @@
   background-color: seashell;
   opacity: 100%;
 }
+
+#logButton {
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
+  transition: all 0.8s ease;
+  background-color: rgb(0, 100, 0);
+  color: rgb(255, 255, 255);
+  width: 70px;
+  height: 30px;
+  opacity: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+  border-radius: 5px;
+  box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
+}
+
+#logButton:hover {
+  opacity: 100%;
+}

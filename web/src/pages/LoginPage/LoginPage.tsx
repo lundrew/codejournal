@@ -54,7 +54,7 @@ const LoginPage = () => {
               </Label>
               <TextField
                 name="username"
-                className="inputText"
+                className="input"
                 errorClassName="rw-input rw-input-error"
                 ref={usernameRef}
                 validation={{
@@ -73,7 +73,7 @@ const LoginPage = () => {
               </Label>
               <PasswordField
                 name="password"
-                className="inputText"
+                className="input"
                 errorClassName="rw-input rw-input-error"
                 autoComplete="current-password"
                 validation={{
