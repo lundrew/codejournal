@@ -58,7 +58,7 @@ const SignupPage = () => {
                 </Label>
                 <TextField
                   name="username"
-                  className="inputText"
+                  className="input"
                   errorClassName="rw-input rw-input-error"
                   ref={usernameRef}
                   validation={{
@@ -72,17 +72,15 @@ const SignupPage = () => {
                 <FieldError name="username" className="rw-field-error" />
               </div>
               <div>
-                <Label
-                  name="password"
-                  errorClassName="rw-label rw-label-error"
-                >
+                <Label name="password" errorClassName="rw-label rw-label-error">
                   Password
                 </Label>
                 <PasswordField
                   name="password"
-                  className="inputText"
+                  className="input"
                   errorClassName="rw-input rw-input-error"
                   autoComplete="current-password"
+                  minLength={8}
                   validation={{
                     required: {
                       value: true,
