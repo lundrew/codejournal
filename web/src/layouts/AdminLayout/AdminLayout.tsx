@@ -15,7 +15,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
       <header>
         <div className="flex-between">
           <h1>
-            <Link to={routes.home()}>Code Journal</Link>
+            <Link to={routes.home()}>Dev Journal Admin</Link>
           </h1>
           {isAuthenticated ? (
             <div>

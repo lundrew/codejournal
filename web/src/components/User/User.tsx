@@ -56,9 +56,10 @@ const User = ({ error, loading, user, onSave }) => {
             className="rw-input"
             errorClassName="rw-input rw-input-error"
             validation={{
-              required: {
-                value: true,
-                message: 'Email is required',
+              required: 'Email is required',
+              pattern: {
+                value: /[^@]+@[^.]+\..{2,}/,
+                message: 'Please enter a valid email address',
               },
             }}
           />
