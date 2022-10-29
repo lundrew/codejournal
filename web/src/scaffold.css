@@ -62,7 +62,6 @@
   padding-bottom: 1rem;
 }
 .rw-segment {
-  overflow: hidden;
   scrollbar-color: #a1a1aa transparent;
 }
 .rw-segment::-webkit-scrollbar {
