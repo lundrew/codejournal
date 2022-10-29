@@ -6,7 +6,7 @@
   max-width: 1000px;
   padding: 1rem;
   margin-bottom: 2rem;
-  margin-left: auto;
+  margin-left: 40px;
   margin-right: auto;
   display: flex;
   align-items: center;
@@ -222,6 +222,7 @@ body.active-modal {
   .myContainer {
     display: flex;
     width: 500px;
+    max-width: 500px;
     padding-bottom: 0px;
     margin-left: -100px;
     margin-top: -80px;
@@ -274,7 +275,7 @@ body.active-modal {
     width: 80px;
   }
 
-  .snippetButtons {
-    visibility: hidden;
+  .hideDiv {
+    display: none;
   }
 }

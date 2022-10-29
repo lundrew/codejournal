@@ -117,50 +117,52 @@ const Post = ({ post }) => {
                     left: '47rem',
                   }}
                 >
-                  <CopyToClipboard text={post.codeSnippet}>
-                    <button
-                      onClick={() => setCopied(true)}
-                      style={{
-                        appearance: 'none',
-                        padding: 8,
-                        border: 0,
-                        outline: 0,
-                        cursor: 'pointer',
-                      }}
-                    >
-                      <div
+                  <div className="hideDiv">
+                    <CopyToClipboard text={post.codeSnippet}>
+                      <button
+                        onClick={() => setCopied(true)}
                         style={{
-                          position: 'relative',
-                          height: 16,
-                          width: 16,
+                          appearance: 'none',
+                          padding: 8,
+                          border: 0,
+                          outline: 0,
+                          cursor: 'pointer',
                         }}
                       >
-                        <Clippy
+                        <div
                           style={{
-                            color: '#292929',
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            strokeDasharray: 50,
-                            strokeDashoffset: copied ? -50 : 0,
-                            transition: 'all 300ms ease-in-out',
+                            position: 'relative',
+                            height: 16,
+                            width: 16,
                           }}
-                        />
-                        <Check
-                          isVisible={copied}
-                          style={{
-                            color: 'green',
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            strokeDasharray: 50,
-                            strokeDashoffset: copied ? 0 : -50,
-                            transition: 'all 300ms ease-in-out',
-                          }}
-                        />
-                      </div>
-                    </button>
-                  </CopyToClipboard>
+                        >
+                          <Clippy
+                            style={{
+                              color: '#292929',
+                              position: 'absolute',
+                              top: 0,
+                              left: 0,
+                              strokeDasharray: 50,
+                              strokeDashoffset: copied ? -50 : 0,
+                              transition: 'all 300ms ease-in-out',
+                            }}
+                          />
+                          <Check
+                            isVisible={copied}
+                            style={{
+                              color: 'green',
+                              position: 'absolute',
+                              top: 0,
+                              left: 0,
+                              strokeDasharray: 50,
+                              strokeDashoffset: copied ? 0 : -50,
+                              transition: 'all 300ms ease-in-out',
+                            }}
+                          />
+                        </div>
+                      </button>
+                    </CopyToClipboard>
+                  </div>
                 </div>
                 {/* Modal */}
                 <button onClick={toggleModal} className="btn-modal">

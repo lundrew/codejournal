@@ -3,6 +3,8 @@
   background-color: whitesmoke;
   width: 420px;
   height: 350px;
+  margin-left: 40px;
+  margin-right: auto;
   padding: 2rem;
   margin-top: 0px;
   display: flex;

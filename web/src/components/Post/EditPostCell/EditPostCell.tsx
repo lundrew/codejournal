@@ -63,6 +63,8 @@ export const Success = ({ post }: CellSuccessProps<EditPostById>) => {
       {currentUser.id === post.authorId ? (
         <div className="postContainer">
           <div className="postFields">
+            <h1 className="cardTitle">Edit Entry</h1>
+
             <PostForm
               post={post}
               onSave={onSave}
