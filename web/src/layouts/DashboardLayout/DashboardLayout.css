@@ -107,3 +107,13 @@ nav {
     margin-right: -30px;
   }
 }
+
+@media (max-width: 60em) {
+  .dashboardContent {
+    display: inline-block;
+  }
+
+  .children {
+    width: 100px;
+  }
+}

@@ -6,7 +6,7 @@
   max-width: 1000px;
   padding: 1rem;
   margin-bottom: 2rem;
-  margin-left: auto;
+  margin-left: 40px;
   margin-right: auto;
   display: flex;
   align-items: center;
@@ -93,7 +93,7 @@
   background-color: whitesmoke;
   width: 800px;
   min-width: 400px;
-  max-width: 1000px;
+  max-width: 100%;
   margin-right: 2rem;
   margin-left: 2rem;
   margin-bottom: 2rem;
@@ -108,7 +108,6 @@
   font-family: 'Courier New', Courier, monospace;
   color: #292929;
   width: 800px;
-  /* padding-left: 10px; */
 }
 
 .viewPostTextPara {
@@ -217,4 +216,66 @@ body.active-modal {
   top: 10px;
   right: 10px;
   padding: 5px 7px;
+}
+
+@media (max-width: 60em) {
+  .myContainer {
+    display: flex;
+    width: 500px;
+    max-width: 500px;
+    padding-bottom: 0px;
+    margin-left: -100px;
+    margin-top: -80px;
+  }
+
+  .titleViewPost {
+    min-width: 200px;
+    max-width: 300px;
+  }
+
+  .viewPostText {
+    font-size: 13px;
+  }
+
+  .postBox {
+    display: flex;
+    width: 80px;
+    max-width: 80px;
+  }
+
+  .innerPostBox {
+    width: 80px;
+    max-width: 80px;
+    margin-left: -55px;
+    height: 200px;
+    margin-bottom: 0px;
+  }
+
+  .codeSnippetText {
+    font-size: 10px;
+    margin-left: 30px;
+  }
+
+  .documentationText {
+    font-size: 10px;
+    margin-left: -120px;
+    overflow: scroll;
+    overflow-x: hidden;
+    max-height: 200px;
+    margin-bottom: 0px;
+  }
+
+  .viewPostTextPara {
+    display: flex;
+    max-width: 200px;
+    visibility: hidden;
+  }
+
+  .viewPostButtons {
+    width: 80px;
+  }
+
+  .hideDiv {
+    display: none;
+  }
 }

@@ -26,20 +26,23 @@ const PostForm = (props) => {
     'CSS',
     'Javascript',
     'TypeScript',
+    'Python',
+    'SQL',
+    'NoSQL',
     'Ruby',
     'Java',
-    'Python',
     'C++',
     'C#',
+    'C',
     'R',
-    'Golang',
+    'Go',
     'Swift',
+    'PHP',
     'Rust',
-    'Scheme',
     'Kotlin',
     'Perl',
-    'PHP',
     'Scala',
+    'Scheme',
   ]
 
   return (
@@ -115,6 +118,7 @@ const PostForm = (props) => {
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
           spellCheck="false"
+          maxLength={5000}
         />
 
         <FieldError name="codeSnippet" className="rw-field-error" />

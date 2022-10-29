@@ -53,8 +53,11 @@
 .postContainer {
   transition: all 0.5s ease;
   background-color: whitesmoke;
+  width: 1000px;
   height: auto;
   padding: 2rem;
+  margin-left: 40px;
+  margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,4 +99,15 @@
 
 #logButton:hover {
   opacity: 100%;
+}
+
+@media (max-width: 60em) {
+  .postContainer {
+    display: flex;
+    width: 500px;
+    padding-bottom: 2rem;
+    padding-top: 0px;
+    margin-left: -90px;
+    margin-top: -80px;
+  }
 }

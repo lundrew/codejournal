@@ -4,6 +4,8 @@
   width: 1000px;
   min-width: 200px;
   max-width: 1000px;
+  margin-left: 40px;
+  margin-right: auto;
   height: auto;
   padding: 2rem;
   display: flex;
@@ -50,4 +52,36 @@ td {
 .iconPosts:hover {
   background-color: seashell;
   opacity: 100%;
+}
+
+@media (max-width: 60em) {
+  .postsContainer {
+    width: 460px;
+    padding-bottom: 0px;
+    margin-left: -70px;
+    margin-top: -70px;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .cardTitle {
+    visibility: hidden;
+  }
+
+  th {
+    padding-right: 40px;
+    opacity: 50%;
+    font-size: 12px;
+    font-weight: 400;
+    color: #292929;
+  }
+
+  td {
+    padding-left: 0rem;
+    padding-right: 0rem;
+    padding-bottom: 3rem;
+    font-size: 10px;
+    color: #292929;
+    border-bottom: 1px solid rgba(41, 41, 41, 10%);
+  }
 }

@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   margin-top: 70px;
-  margin-left: 40px;
+  margin-left: 70px;
   border-radius: 30px;
   box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
 }
@@ -23,4 +23,26 @@
 .panelIcon:hover {
   transform: scale(1.2);
   transition: 1s;
+}
+
+@media (max-width: 60em) {
+  .dashboardPanel {
+    background-color: whitesmoke;
+    width: 360px;
+    height: 80px;
+    display: flex;
+    padding-left: 50px;
+    margin-left: 25px;
+    margin-top: 10px;
+  }
+
+  .panelIcon {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    justify-content: space-evenly;
+    opacity: 70%;
+    margin-top: 30px;
+    margin-right: 50px;
+  }
 }
