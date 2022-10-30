@@ -107,7 +107,7 @@ const PostsList = ({ posts }) => {
   return (
     <div className="postsContainer">
       <table>
-        <thead className="cardTitle">Entry List</thead>
+        <thead className="cardTitle">Entries</thead>
         <tbody>
           {/* <th>No</th> */}
           <th>Date</th>

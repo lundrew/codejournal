@@ -1,4 +1,5 @@
 import humanize from 'humanize-string'
+import { MetaTags } from '@redwoodjs/web'
 
 import { Link, routes, navigate } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
@@ -95,6 +96,7 @@ const Post = ({ post }) => {
 
   return (
     <>
+    <MetaTags title="Entry" description="UserDashboard page" />
       {currentUser.id === post.authorId ? (
         <div className="myContainer">
           <div className="rw-segment">

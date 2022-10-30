@@ -4,7 +4,7 @@ import PostsCell from 'src/components/Post/PostsCell'
 const UserDashboardPage = () => {
   return (
     <>
-      <MetaTags title="UserDashboard" description="UserDashboard page" />
+      <MetaTags title="Dashboard" description="UserDashboard page" />
       <div className='dashboardPage'>
       <PostsCell />
       </div>
