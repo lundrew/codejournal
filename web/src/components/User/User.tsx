@@ -24,7 +24,7 @@ const User = ({ error, loading, user, onSave }) => {
 
   return (
     <div className="profileForm">
-      <div className="cardTitle">Edit Profile</div>
+      <div className="cardTitle">Edit User</div>
 
       <div className="theForm">
         <Form onSubmit={onSave} error={error}>

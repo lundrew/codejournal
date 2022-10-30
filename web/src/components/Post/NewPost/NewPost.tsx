@@ -36,7 +36,7 @@ const NewPost = () => {
     (hasRole('admin') || hasRole('moderator') || hasRole('user')) && (
       <div className="postContainer">
         <div className="postFields">
-          <h1 className="cardTitle">Create Entry</h1>
+          <h1 className="cardTitle">Add Entry</h1>
           <div className="theForm">
             <PostForm onSave={onSave} loading={loading} error={error} />
           </div>

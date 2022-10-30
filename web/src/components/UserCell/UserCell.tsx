@@ -54,7 +54,7 @@ export const Success = ({ user }: CellSuccessProps) => {
   }
   return (
     <>
-      <MetaTags title={`${user.email || user.name} | Edit Profile`} />
+      <MetaTags title="Edit User" />
       <div>
         <div>
           <User error={error} loading={loading} onSave={onSave} user={user} />
