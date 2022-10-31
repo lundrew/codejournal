@@ -23,14 +23,14 @@ const HomePage = ({ children }: AdminLayoutProps) => {
         <p className="descriptionThree">
           learn
           <br />
-          store
+          save
           <br />
           revisit
           <br />
-          retain.
+          at any time.
         </p>
         <button className="signUpButtonHome">
-          <Link to={routes.signup()}>Sign Up</Link>
+          <Link to={routes.signup()}>Start a Journal</Link>
         </button>
         <div>
           {isAuthenticated ? (

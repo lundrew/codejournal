@@ -28,23 +28,28 @@ input {
   transition: all 0.2s ease-in-out;
 }
 
-.signUpButton {
-  transition: all 0.5s ease;
-  background-color: whitesmoke;
+.submitButton {
   width: 300px;
+  height: 50px;
+}
+
+.userSaveButton {
+  background-color: rgb(50, 137, 225);
+  color: rgb(227, 227, 227);
+  transition: all 0.3s ease;
+  width: 130px;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
   margin-left: auto;
-  border-radius: 30px;
-  box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
+  margin-right: auto;
+  border-radius: 10px;
 }
 
-.signUpButton:hover {
-  color: white;
-  background-color: black;
+.userSaveButton:hover {
+  background-color: rgb(23, 115, 207);
 }
 
 .theForm {
@@ -56,7 +61,7 @@ input {
     display: flex;
     width: 400px;
     padding-bottom: 0px;
-    margin-left: -40px;
+    margin-left: -50px;
     margin-top: -70px;
   }
 }
