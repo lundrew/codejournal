@@ -29,7 +29,8 @@
 
 .signUpButton {
   transition: all 0.5s ease;
-  background-color: whitesmoke;
+  background-color: rgb(50, 137, 225);
+  color: rgb(227, 227, 227);
   width: 300px;
   height: 50px;
   display: flex;
@@ -39,7 +40,12 @@
   margin-left: auto;
   margin-bottom: 1rem;
   border-radius: 30px;
-  box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.signUpButton:hover {
+  color: rgb(227, 227, 227);
+  background-color: rgb(23, 115, 207);
 }
 
 .form-links {
@@ -53,9 +59,4 @@
 
 .form-links:hover {
   opacity: 80%;
-}
-
-.signUpButton:hover {
-  color: white;
-  background-color: black;
 }

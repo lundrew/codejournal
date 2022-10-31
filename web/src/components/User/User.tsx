@@ -66,8 +66,8 @@ const User = ({ error, loading, user, onSave }) => {
 
           <FieldError name="email" className="rw-field-error" />
 
-          <div>
-            <Submit className="signUpButton">Save</Submit>
+          <div className="userSaveButton">
+            <Submit className="submitButton">Save</Submit>
           </div>
         </Form>
       </div>

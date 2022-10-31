@@ -44,21 +44,24 @@ nav {
 }
 
 .logoutButton {
-  transition: all 0.8s ease;
+  transition: all 0.3s ease;
   background-color: whitesmoke;
+  color: black;
   width: 75px;
   height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 0px;
-  border-radius: 30px;
-  box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
+  border-radius: 10px;
+  border: 2px solid rgb(0, 0, 0, 0.1);
 }
 
 .logoutButton:hover {
-  color: whitesmoke;
-  background-color: black;
+  color: black;
+  background-color: rgb(208, 208, 208);
+  border: 2px solid rgb(208, 208, 208);
+  opacity: 50%;
 }
 
 .divider {
