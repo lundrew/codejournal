@@ -1,5 +1,6 @@
 header {
   display: flex;
+  color: #292929;
   align-items: center;
   justify-content: flex-end;
   padding: 3rem;
@@ -8,7 +9,6 @@ header {
   background-color: whitesmoke;
   z-index: 40;
   border-bottom: 1px rgb(41, 41, 41, 10%) solid;
-  opacity: 70%;
 }
 
 nav {

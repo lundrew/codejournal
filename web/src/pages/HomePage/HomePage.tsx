@@ -13,7 +13,7 @@ const HomePage = ({ children }: AdminLayoutProps) => {
   return (
     <>
       <MetaTags title="Home" description="Home page" />
-      <Link to={routes.userDashboard()} className="title">
+      <Link to={routes.userDashboard()} className="homeTitle">
         {' '}
         Dev Journal{' '}
       </Link>
