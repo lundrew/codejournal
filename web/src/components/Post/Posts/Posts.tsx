@@ -39,17 +39,17 @@ const truncate = (text) => {
   return output
 }
 
-const jsonTruncate = (obj) => {
-  return truncate(JSON.stringify(obj, null, 2))
-}
+// const jsonTruncate = (obj) => {
+//   return truncate(JSON.stringify(obj, null, 2))
+// }
 
-const timeTruncate = (text) => {
-  let output = text
-  if (text && text.length > 3) {
-    output = output.substring(0, 3) + '...'
-  }
-  return output
-}
+// const timeTruncate = (text) => {
+//   let output = text
+//   if (text && text.length > 3) {
+//     output = output.substring(0, 3) + '...'
+//   }
+//   return output
+// }
 
 const timeTag = (datetime) => {
   return (
@@ -59,11 +59,12 @@ const timeTag = (datetime) => {
       </time>
     )
   )
+  // Convert time to browser local time *****
 }
 
-const checkboxInputTag = (checked) => {
-  return <input type="checkbox" checked={checked} disabled />
-}
+// const checkboxInputTag = (checked) => {
+//   return <input type="checkbox" checked={checked} disabled />
+// }
 
 const PostsList = ({ posts }) => {
   const [deletePost] = useMutation(DELETE_POST_MUTATION, {
@@ -80,8 +81,17 @@ const PostsList = ({ posts }) => {
     awaitRefetchQueries: true,
   })
 
-  const onDeleteClick = (id) => {
-    if (confirm('Are you sure you want to delete post ' + id + '?')) {
+
+// onDeleteClick warning message in modal *****
+// filter currentUserPosts by id, map filtered array Title
+
+
+const onDeleteClick = (id) => {
+    const currentUserIds = []
+
+    currentUserPosts.map(item => item.id === id ? currentUserIds.push(item) : null)
+
+    if (confirm('Are you sure you want to delete post ' + currentUserIds[0].title)) {
       deletePost({ variables: { id } })
     }
   }
