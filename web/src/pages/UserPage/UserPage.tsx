@@ -8,7 +8,7 @@ const UserPage = () => {
 
   return (
     <>
-      <MetaTags title="User" description="Profile page" />
+      {/* <MetaTags title="User" description="Profile page" /> */}
       <UserCell user={currentUser} />
     </>
   )

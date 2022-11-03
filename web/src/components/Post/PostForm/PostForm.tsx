@@ -14,6 +14,30 @@ import {
 import './PostForm.css'
 import CheckBox from './../../Assets/checkbox.png'
 
+export const languages = [
+  'HTML',
+  'CSS',
+  'Javascript',
+  'TypeScript',
+  'Python',
+  'SQL',
+  'NoSQL',
+  'Ruby',
+  'Java',
+  'C++',
+  'C#',
+  'C',
+  'R',
+  'Go',
+  'Swift',
+  'PHP',
+  'Rust',
+  'Kotlin',
+  'Perl',
+  'Scala',
+  'Scheme',
+]
+
 const PostForm = (props) => {
   const onSubmit = (data) => {
     props.onSave(data, props?.post?.id)
@@ -21,29 +45,6 @@ const PostForm = (props) => {
 
   const { currentUser } = useAuth()
 
-  const languages = [
-    'HTML',
-    'CSS',
-    'Javascript',
-    'TypeScript',
-    'Python',
-    'SQL',
-    'NoSQL',
-    'Ruby',
-    'Java',
-    'C++',
-    'C#',
-    'C',
-    'R',
-    'Go',
-    'Swift',
-    'PHP',
-    'Rust',
-    'Kotlin',
-    'Perl',
-    'Scala',
-    'Scheme',
-  ]
 
   return (
     <div className="rw-form-wrapper">
