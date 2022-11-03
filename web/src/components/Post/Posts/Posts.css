@@ -54,6 +54,21 @@ td {
   opacity: 100%;
 }
 
+.filterField {
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background-color: rgb(50, 137, 225);
+  color: rgb(227, 227, 227);
+  width: 500px;
+  height: 30px;
+
+  /* margin-left: 0px; */
+
+  margin-top: 40px;
+  border-radius: 5px;
+}
+
 @media (max-width: 60em) {
   .postsContainer {
     width: 460px;
