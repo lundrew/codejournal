@@ -11,6 +11,7 @@ import View from './../../Assets/journal.png'
 import { useAuth } from '@redwoodjs/auth'
 import { Form, InputField, TextField, SelectField } from '@redwoodjs/forms'
 import { languages } from '../PostForm'
+import { Modal } from 'antd'
 
 const DELETE_POST_MUTATION = gql`
   mutation DeletePostMutation($id: Int!) {
@@ -22,16 +23,16 @@ const DELETE_POST_MUTATION = gql`
 
 const MAX_STRING_LENGTH = 150
 
-const formatEnum = (values: string | string[] | null | undefined) => {
-  if (values) {
-    if (Array.isArray(values)) {
-      const humanizedValues = values.map((value) => humanize(value))
-      return humanizedValues.join(', ')
-    } else {
-      return humanize(values as string)
-    }
-  }
-}
+// const formatEnum = (values: string | string[] | null | undefined) => {
+//   if (values) {
+//     if (Array.isArray(values)) {
+//       const humanizedValues = values.map((value) => humanize(value))
+//       return humanizedValues.join(', ')
+//     } else {
+//       return humanize(values as string)
+//     }
+//   }
+// }
 
 const truncate = (text) => {
   let output = text
@@ -83,20 +84,17 @@ const PostsList = ({ posts }) => {
     awaitRefetchQueries: true,
   })
 
-
-// onDeleteClick warning message in modal *****
-// filter currentUserPosts by id, map filtered array Title
-
-
-const onDeleteClick = (id) => {
-    const currentUserIds = []
-
-    currentUserPosts.map(item => item.id === id ? currentUserIds.push(item) : null)
-
-    if (confirm('Are you sure you want to delete post ' + currentUserIds[0].title)) {
-      deletePost({ variables: { id } })
-    }
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const showModal = () => {
+    setIsModalOpen(true);
   }
+  const handleOk = (id) => {
+    deletePost({ variables: { id } })
+    setIsModalOpen(false)
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   const { currentUser } = useAuth()
 
@@ -154,7 +152,9 @@ const onDeleteClick = (id) => {
             <option>All Posts</option>
             {languages &&
               languages.map((value) => (
-                <option value={value} key={value}>
+                <option
+                value={value}
+                key={value}>
                   {value}
                 </option>
               ))}
@@ -192,12 +192,20 @@ const onDeleteClick = (id) => {
                   <button
                     type="button"
                     title={'Delete Post'}
-                    onClick={() => onDeleteClick(post.id)}
+                    onClick={showModal}
                     className="iconPosts"
                   >
                     {' '}
                     <img src={Trash} />{' '}
                   </button>
+                  <Modal
+                    className="modal"
+                    title={post.title}
+                    open={isModalOpen}
+                    onOk={() => handleOk(post.id)}
+                    onCancel={handleCancel}>
+                    <p>'Are you sure you want to delete post '<strong>{post.title}</strong></p>
+                  </Modal>
                 </nav>
               </td>
             </tr>
