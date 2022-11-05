@@ -106,35 +106,62 @@ const PostsList = ({ posts }) => {
       }
     })
 
-  const reversePosts = (arr) => {
-    let newArr = []
-    newArr.push(...arr)
-    return newArr.reverse()
-  }
-
-  const currentUserPostsReversed = reversePosts(currentUserPosts)
+  // const reversePosts = (arr) => {
+  //   let newArr = []
+  //   newArr.push(...arr)
+  //   return newArr.reverse()
+  // }
+  //*** reversePosts function not needed -> currentUserPosts already an array */
+  currentUserPosts.reverse()
+  // once .reverse is ran the array is mutated no need to declare new variable
 
   //LANGUAGE FILTER
-  const [chosenLanguage, setLanguage] = useState()
+  const [chosenLanguage, setLanguage] = useState('')
 
   let onChange = (event) => {
-    const newValue = event.target.value
-    setLanguage(newValue)
-    console.log(newValue)
+    const newLanguageValue = event.target.value
+    setLanguage(newLanguageValue)
+    console.log("onChange Dropdown Selection:", newLanguageValue)
+  }
+
+  let onKeywordSearchChange = (event) => {
+    const newKeywordSearchValue = event.target.value.toLowerCase()
+    setLanguage(newKeywordSearchValue)
+    console.log("On Search Input Change:", newKeywordSearchValue)
+
+  }
+
+  const searchStringInArray = () => {
+    const searchInput = new RegExp(chosenLanguage)
+    for (let i = 0; i < languages.length; i++) {
+      if (languages[i].match(searchInput)) {
+        let displayedPosts = []
+        displayedPosts.push(currentUserPosts.filter(x => x.codeLanguage === languages[i]))
+        // return console.log('DisplayedPosts:', displayedPosts)
+        console.log("DisplayedPosts:", displayedPosts, "chosenLanguage:", chosenLanguage)
+        return displayedPosts.map(x => languageSpecific.push(...x))
+
+      };
+    }
   }
 
   const languageSpecific = []
 
-  currentUserPostsReversed.map((item) => {
-    if (chosenLanguage === 'All Posts') {
-      return languageSpecific.push(item)
-    } else if (item.codeLanguage === chosenLanguage) {
-      languageSpecific.push(item)
-    } else if (item.title === chosenLanguage) {
-      languageSpecific.push(item)
-    }
-  })
 
+  // const searchStringInArray = () => {
+  //   const searchInput = new RegExp(chosenLanguage)
+  //   for (let i = 0; i < languages.length; i++) {
+  //     if (languages[i].match(searchInput)) {
+  //       let displayedPosts = []
+  //       displayedPosts.push(currentUserPosts.filter(x => x.codeLanguage === languages[i]))
+  //       // return console.log('DisplayedPosts:', displayedPosts)
+  //       console.log("DisplayedPosts:", displayedPosts, "chosenLanguage:", chosenLanguage)
+  //       return displayedPosts.map(x => languageSpecific.push(...x))
+  //     };
+  //   }
+  // }
+
+  chosenLanguage === 'All Posts' || !chosenLanguage ? currentUserPosts.map(x => languageSpecific.push(x)) : searchStringInArray()
 
   return (
     <>
@@ -149,22 +176,21 @@ const PostsList = ({ posts }) => {
               required: true,
             }}
           >
-            <option>All Posts</option>
+            <option value="" disabled selected>Select Language Filter</option>
             {languages &&
               languages.map((value) => (
                 <option
-                value={value}
-                key={value}>
+                  value={value}
+                  key={value}>
                   {value}
-                </option>
-              ))}
+                </option>))}
           </SelectField>
         </Form>
       </div>
       <div>
         {/* input for filtering keywords */}
 
-        <input className="language-input" onChange={onChange}></input>
+        <input className="language-input" onChange={onKeywordSearchChange}></input>
       </div>
       <div className="postsContainer">
         <tbody>

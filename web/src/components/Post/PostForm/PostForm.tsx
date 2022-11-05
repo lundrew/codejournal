@@ -15,6 +15,7 @@ import './PostForm.css'
 import CheckBox from './../../Assets/checkbox.png'
 
 export const languages = [
+  'All Posts',
   'HTML',
   'CSS',
   'Javascript',
