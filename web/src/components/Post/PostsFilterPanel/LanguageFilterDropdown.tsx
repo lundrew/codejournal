@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Form, SelectField } from '@redwoodjs/forms'
 import { languages } from '../PostForm'
-import PostMapper from '../Posts/PostMapper'
+import Posts from '../Posts/Posts'
 
 
 function LanguageFilterDropdown({ currentUserPosts }) {
@@ -53,7 +53,7 @@ function LanguageFilterDropdown({ currentUserPosts }) {
               </option>))}
         </SelectField>
       </Form>
-      <PostMapper
+      <Posts
         filteredPosts={filteredPosts}
       />
     </>

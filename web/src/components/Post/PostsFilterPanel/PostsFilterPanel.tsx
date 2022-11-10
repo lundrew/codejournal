@@ -4,16 +4,13 @@ import LanguageFilterDropdown from './LanguageFilterDropdown'
 import './PostsFilterPanel.css'
 
 function PostsFilterPanel({ currentUserPosts }) {
-  return (<>
-    <div>
-      <LanguageFilterDropdown
-        currentUserPosts={currentUserPosts}
-      />
-      <KeywordSearchBar
-        currentUserPosts={currentUserPosts}
-      />
-    </div>
-  </>)
+  return (
+    <>
+      <div className="filterPanelContainer">
+        <LanguageFilterDropdown currentUserPosts={currentUserPosts} />
+      </div>
+    </>
+  )
 }
 
 export default PostsFilterPanel

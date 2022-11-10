@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { languages } from '../PostForm'
-import PostMapper from '../Posts/PostMapper'
+import Posts from '../Posts/Posts'
 
 function KeywordSearchBar({ currentUserPosts }) {
   const [searchInput, setSearchinput] = useState()
@@ -32,9 +32,7 @@ function KeywordSearchBar({ currentUserPosts }) {
       className="language-input"
       onChange={onKeywordSearchChange}
     ></input>
-    <PostMapper
-      filteredPosts={filteredPosts}
-    />
+
   </>
 }
 

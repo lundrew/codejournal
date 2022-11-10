@@ -17,6 +17,26 @@
   box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
 }
 
+.filterPanelContainer {
+  transition: all 0.5s ease;
+  background-color: whitesmoke;
+  width: 1000px;
+  height: 100px;
+  margin-left: 40px;
+  margin-bottom: 20px;
+  min-width: 200px;
+  max-width: 1000px;
+  margin-right: auto;
+  height: 50px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  box-shadow: 6px 6px 12px 0px rgb(0, 0, 0, 0.15);
+}
+
+
 .cardTitle {
   color: #292929;
   font-weight: bold;
@@ -75,6 +95,15 @@ td {
   .postsContainer {
     width: 460px;
     padding-bottom: 0px;
+    margin-left: -80px;
+    margin-top: 0px;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .filterPanelContainer {
+    width: 460px;
+    padding-bottom: 30px;
     margin-left: -80px;
     margin-top: -70px;
     overflow: scroll;
