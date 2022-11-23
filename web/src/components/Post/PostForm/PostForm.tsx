@@ -39,12 +39,38 @@ export const languages = [
   'Scheme',
 ]
 
+const languages2 = [
+  'HTML',
+  'CSS',
+  'Javascript',
+  'TypeScript',
+  'Python',
+  'SQL',
+  'NoSQL',
+  'Ruby',
+  'Java',
+  'C++',
+  'C#',
+  'C',
+  'R',
+  'Go',
+  'Swift',
+  'PHP',
+  'Rust',
+  'Kotlin',
+  'Perl',
+  'Scala',
+  'Scheme',
+]
+
 const PostForm = (props) => {
   const onSubmit = (data) => {
     props.onSave(data, props?.post?.id)
   }
 
   const { currentUser } = useAuth()
+
+
 
 
   return (
@@ -74,8 +100,7 @@ const PostForm = (props) => {
           }}
         >
           <option value="">Select a Language</option>
-          {languages &&
-            languages.map((value) => (
+          {languages2 && languages2.map((value) => (
               <option value={value} key={value}>
                 {value}
               </option>
